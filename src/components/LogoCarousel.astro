@@ -1,0 +1,98 @@
+---
+const logos = [
+  {
+    "filename":"logo-react.svg",
+    "alt":"React logo",
+  },
+  {
+    "filename":"logo-nextjs.svg",
+    "alt":"Next.js logo",
+  },
+  {
+    "filename":"logo-sanity.svg",
+    "alt":"Sanity logo",
+  },
+  {
+    "filename":"logo-astro.svg",
+    "alt":"Astro logo",
+  },
+  {
+    "filename":"logo-tailwind.svg",
+    "alt":"Next.js logo",
+  },
+  {
+    "filename":"logo-framer-motion.svg",
+    "alt":"Next.js logo",
+  },
+  {
+    "filename":"logo-gatsby.svg",
+    "alt":"Next.js logo",
+  },
+  {
+    "filename":"logo-typescript.svg",
+    "alt":"Next.js logo",
+  },
+  {
+    "filename":"logo-js.svg",
+    "alt":"Next.js logo",
+  },
+  {
+    "filename":"logo-css3.svg",
+    "alt":"Next.js logo",
+  },
+  {
+    "filename":"logo-html5.svg",
+    "alt":"Next.js logo",
+  },
+  {
+    "filename":"logo-figma.svg",
+    "alt":"Next.js logo",
+  },
+]
+---
+
+<div class="carousel-wrap relative flex w-full overflow-hidden">
+
+  <div class="carousel flex flex-none will-change-transform">
+    {logos.map(logo => (
+      <img class="mx-6" src={logo.filename} alt={logo.alt}>
+    ))}
+  </div>
+
+  <div class="carousel flex flex-none will-change-transform" aria-hidden="true">
+    {logos.map(logo => (
+      <img class="mx-6" src={logo.filename} alt={logo.alt}>
+    ))}
+  </div>
+
+  <div class="carousel flex flex-none will-change-transform" aria-hidden="true">
+    {logos.map(logo => (
+      <img class="mx-6" src={logo.filename} alt={logo.alt}>
+    ))}
+  </div>
+
+</div>
+
+
+<style>
+.carousel-wrap:before {
+  content: "";
+  @apply absolute left-0 top-0 h-full w-52 bg-gradient-to-r from-offwhite z-10;
+}
+
+.carousel-wrap::after {
+  content: "";
+  @apply absolute right-0 top-0 h-full w-52 bg-gradient-to-l from-offwhite z-10;
+}
+
+.carousel {
+  animation: marquee 20s infinite linear;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+</style>

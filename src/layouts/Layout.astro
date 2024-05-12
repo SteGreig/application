@@ -34,7 +34,11 @@ const { title } = Astro.props;
 	}
 
 	.heading {
-		@apply text-5xl tracking-[-1px] text-balance;
+		@apply text-4xl lg:text-5xl/[1.2] tracking-[-1px] text-balance;
+	}
+
+	.subheading {
+		@apply text-grey-700 mt-6;
 	}
 
 	.copy .heading {
@@ -46,16 +50,15 @@ const { title } = Astro.props;
 	}
 
 	.content-img {
-		@apply relative;
+		@apply relative max-w-128 md:max-w-[412px];
 	}
 
 	.content-img img {
-		@apply rounded-xl aspect-square object-cover;
+		@apply rounded-xl aspect-square object-cover relative z-20;
 	}
 
 	.content-img:after {
 		content: "";
-		@apply absolute border border-grey-900 w-full top-6 left-6 aspect-square rounded-xl;
-		z-index: -1;
+		@apply absolute border border-grey-900 w-full top-3 left-3 lg:top-6 lg:left-6 aspect-square	rounded-xl z-10;
 	}
 </style>
