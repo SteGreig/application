@@ -12,7 +12,7 @@ import Card from '../components/Card.astro';
 			<a class="btn" href="">Get in touch</a>
 		</header>
 		
-		<section class="sticky top-0 bg-offwhite h-screen flex flex-col items-center justify-center">
+		<section class="sticky top-0 z-[-1] bg-offwhite h-screen flex flex-col items-center justify-center">
 			<figure class="relative after:absolute after:bottom-0 after:w-full after:h-1/2 after:bg-gradient-to-t after:from-offwhite">
 				<img width="220" height="221" class="mix-blend-darken" src="/ste-profile.png" alt="Ste Greig profile picture">
 			</figure>
@@ -22,9 +22,9 @@ import Card from '../components/Card.astro';
 			<p class="mt-14 text-grey-500">(and I'd like to work for you)</p>
 		</section>
 
-		<section class="bg-grey-100 relative z-10 py-24">
-			<div class="container">
-				<div class="w-full md:w-1/2 copy">
+		<section class="bg-grey-100">
+			<div class="md:flex md:items-start">
+				<div class="w-full max-w-128 mx-auto copy py-32">
 					<h2 class="heading">What I am and what I'm not (yet)</h2>
 					<p>Front-end is a broad term in 2024. Many come via a computer science route, and others from a more creative background. My flavour of front-end is more-so the latter, but I continue to edge closer towards an ideal mix of the two.</p>
 
@@ -36,7 +36,34 @@ import Card from '../components/Card.astro';
 						
 					<p>I'd like to think I'm the sort of person you can bet on. I'm extremely adaptable and a very fast learner, generally able to achieve a high level in whatever I turn my focus to. So if you think there are any gaps in my skill set, I'm confident these can be filled in a very short space of time.</p>
 				</div>
+				<div class=" max-w-[412px] md:mr-auto flex items-center md:sticky md:top-0 h-screen">
+					<figure class="content-img">
+						<img src="/family.png" alt="">
+						<figcaption>Hello there lorem ipsum</figcaption>
+					</figure>
+				</div>
 			</div>
+		</section>
+
+		<section class="bg-offwhite">
+			<p>Front-end is a broad term in 2024. Many come via a computer science route, and others from a more creative background. My flavour of front-end is more-so the latter, but I continue to edge closer towards an ideal mix of the two.</p>
+
+					<p>I specialise in UI patterns, user experiences, interactions, accessibility, page speed, and the visual and structural aspects of web pages and apps.</p>
+						
+					<p>I also have vast experience in marketing, which has facilitated a well-rounded skill set; lead-gen, e-commerce, CRO, SEO, A/B testing...</p>
+						
+					<p>I wouldn't quite describe myself as full-stack, but I love JavaScript and I've loved the transition to working in modern JS frameworks over the last 6-7 years, with considerable experience in Next.js, Gatsby, Astro and Eleventy.</p>
+						
+					<p>I'd like to think I'm the sort of person you can bet on. I'm extremely adaptable and a very fast learner, generally able to achieve a high level in whatever I turn my focus to. So if you think there are any gaps in my skill set, I'm confident these can be filled in a very short space of time.</p>
+					<p>Front-end is a broad term in 2024. Many come via a computer science route, and others from a more creative background. My flavour of front-end is more-so the latter, but I continue to edge closer towards an ideal mix of the two.</p>
+
+					<p>I specialise in UI patterns, user experiences, interactions, accessibility, page speed, and the visual and structural aspects of web pages and apps.</p>
+						
+					<p>I also have vast experience in marketing, which has facilitated a well-rounded skill set; lead-gen, e-commerce, CRO, SEO, A/B testing...</p>
+						
+					<p>I wouldn't quite describe myself as full-stack, but I love JavaScript and I've loved the transition to working in modern JS frameworks over the last 6-7 years, with considerable experience in Next.js, Gatsby, Astro and Eleventy.</p>
+						
+					<p>I'd like to think I'm the sort of person you can bet on. I'm extremely adaptable and a very fast learner, generally able to achieve a high level in whatever I turn my focus to. So if you think there are any gaps in my skill set, I'm confident these can be filled in a very short space of time.</p>
 		</section>
 		
 	</main>

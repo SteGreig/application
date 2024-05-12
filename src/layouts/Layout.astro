@@ -44,4 +44,18 @@ const { title } = Astro.props;
 	.copy > * + * {
 		@apply mt-5;
 	}
+
+	.content-img {
+		@apply relative;
+	}
+
+	.content-img img {
+		@apply rounded-xl aspect-square object-cover;
+	}
+
+	.content-img:after {
+		content: "";
+		@apply absolute border border-grey-900 w-full top-6 left-6 aspect-square rounded-xl;
+		z-index: -1;
+	}
 </style>
