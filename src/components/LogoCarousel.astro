@@ -77,12 +77,14 @@ const logos = [
 <style>
 .carousel-wrap:before {
   content: "";
-  @apply absolute left-0 top-0 h-full w-52 bg-gradient-to-r from-offwhite z-10;
+  @apply absolute left-0 -top-4 -bottom-4 w-52 bg-gradient-to-r from-offwhite z-10 backdrop-blur-lg backdrop-opacity-70;
+  mask-image: linear-gradient(to right, rgb(24, 23, 23) 50%, transparent);
 }
 
 .carousel-wrap::after {
   content: "";
-  @apply absolute right-0 top-0 h-full w-52 bg-gradient-to-l from-offwhite z-10;
+  @apply absolute right-0 -top-4 -bottom-4 w-52 bg-gradient-to-l from-offwhite z-10 backdrop-blur-lg backdrop-opacity-70;
+  mask-image: linear-gradient(to left, rgb(24, 23, 23) 50%, transparent);
 }
 
 .carousel {
