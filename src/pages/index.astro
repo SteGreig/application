@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import LogoCarousel from '../components/LogoCarousel.astro';
 import Project from '../components/Project.astro';
-import ProjectLarge from '../components/ProjectLarge.astro';
 ---
 
 <Layout title="Creative Front-end Developer - Ste Greig">
@@ -51,30 +50,120 @@ import ProjectLarge from '../components/ProjectLarge.astro';
 			<LogoCarousel />
 		</section>
 
-		<section class="bg-offwhite h-screen py-16 md:py-20 lg:py-32">
+		<section class="bg-offwhite py-16 md:py-20 lg:py-32">
 			<div class="max-w-screen-md mx-auto text-center">
 				<h2 class="heading">Here are a few of my favourite projects</h2>
 				<p class="subheading">All of the projects below were both designed and built by me in their entirety</p>
 			</div>
 
-			<div class="flex max-w-screen-3xl mx-auto p-4 pt-16">
-				<ProjectLarge
+			<div class="flex flex-wrap max-w-screen-3xl mx-auto p-2 lg:px-4 xl:px-8 pt-8 lg:pt-16">
+				<Project
+					variant="large"
 					title="Messi vs Ronaldo"
+					subtitle='messivsronaldo.app'
 					link="https://www.messivsronaldo.app/"
 					image="/messi-vs-ronaldo.webp"
-					classes="w-1/2 p-8"
+					classes="w-full md:w-1/2 p-2 lg:p-4 xl:p-8"
 				>
-				</ProjectLarge>
+					<p>The sequel to my original side-project which I sold for a five-figure sum, messivsronaldo.app began as a learning exercise and developed into a real passion project. <button class="read-more-btn">Read more</button></p>
 
-				<ProjectLarge
+					<div class="[&>*]:mt-4 hidden read-more-content">
+						<p>Built with Gatsby, this site was my gateway into React, and I can't understate how much I learnt during both the initial build and the never-ending feature additions. It was a constant work in progress for the best part of 2 years, and it was fantastic to have a project that really energised me in the way that this did.</p>
+							
+						<p>The original iteration of this side-project which I previously alluded to (messivsronaldo.net), I created in 2012 and sold in 2016 with an average daily user count of around 15,000, and a firm grip of the top spots in Google for the most relevant search terms.</p>
+							
+						<p>This new version was initially a learning exercise primarily, but soon began to show some promise in terms of organic performance. In a little over a year it had toppled its predecessor, and went on to achieve some dizzying numbers, despite zero financial investment on marketing.</p>
+							
+						<p>In the year from October 2022 to September 2023, the site had 11.7 million users, an average of 32,000 per day. It has also surpassed 100k users in a single day on 8 occasions, including twice breaking the 200k barrier! The all time high was 226,323 on Monday 19th December 2022, the day after Lionel Messi's World Cup triumph.</p>
+					</div>
+				</Project>
+
+				<Project
+					variant="large"
 					title="Top Scorers Club"
+					subtitle='topscorers.club'
 					link="https://www.topscorers.club/"
 					image="/top-scorers-club.webp"
-					classes="w-1/2 p-8"
+					classes="w-full md:w-1/2 p-2 lg:p-4 xl:p-8"
 				>
-				</ProjectLarge>
+				<p>Top Scorers Club is another recently launched side project with a simple purpose; an at-a-glance, quick-reference resource showing the top scorers and assisters in football's biggest competitions. <button class="read-more-btn">Read more</button></p>
+
+				<div class="[&>*]:mt-4 hidden read-more-content">
+					<p>The site was built with Astro, and I have to say it was an immensely enjoyable build, with the Astro developer experience probably my overall favourite at the moment.</p>
+						
+					<p>Without going into too much detail about the data side, the site makes creative use of the Google Sheets API, auto-updates and costs nothing to run.</p>
+				</div>
+				</Project>
+			</div>
+
+			<div class="flex px-12">
+				<Project
+					title="Personal Site"
+					subtitle='ste.digital'
+					link="https://ste.digital"
+					image="/ctc.jpg"
+					classes="w-full md:w-1/2 lg:w-1/4 p-3"
+				/>
+				<Project
+					title="Personal Site"
+					subtitle='ste.digital'
+					link="https://ste.digital"
+					image="/ctc.jpg"
+					classes="w-full md:w-1/2 lg:w-1/4 p-3"
+				/>
+				<Project
+					title="Personal Site"
+					subtitle='ste.digital'
+					link="https://ste.digital"
+					image="/ctc.jpg"
+					classes="w-full md:w-1/2 lg:w-1/4 p-3"
+				/>
+				<Project
+					title="Personal Site"
+					subtitle='ste.digital'
+					link="https://ste.digital"
+					image="/ctc.jpg"
+					classes="w-full md:w-1/2 lg:w-1/4 p-3"
+				/>
+			</div>
+
+		</section>
+
+		<section class="bg-grey-100 px-6 py-16 md:py-0">
+			<div class="md:flex md:items-start">
+				<div class="w-full max-w-128 mx-auto copy md:pr-10 xl:pr-0 md:py-20 lg:py-32">
+					<h2 class="heading">I love writing about web tech too</h2>
+					<p class="subheading">I'm even a published author!</p>
+					<p>Front-end is a broad term in 2024. Many come via a computer science route, and others from a more creative background. My flavour of front-end is more-so the latter, but I continue to edge closer towards an ideal mix of the two.</p>
+
+					<p>I specialise in UI patterns, user experiences, interactions, accessibility, page speed, and the visual and structural aspects of web pages and apps.</p>
+						
+					<p>I also have vast experience in marketing, which has facilitated a well-rounded skill set; lead-gen, e-commerce, CRO, SEO, A/B testing...</p>
+						
+					<p>I wouldn't quite describe myself as full-stack, but I love JavaScript and I've loved the transition to working in modern JS frameworks over the last 6-7 years, with considerable experience in Next.js, Gatsby, Astro and Eleventy.</p>
+				</div>
+				<div class="mt-8 md:mt-0 md:py-32 md:mr-auto flex justify-center items-center md:sticky md:top-0 lg:h-screen">
+					<figure class="content-img">
+						<img src="/css3-ptl.webp" alt="My book, CSS3 Pushing the Limits">
+						<figcaption>Hello there lorem ipsum</figcaption>
+					</figure>
+				</div>
 			</div>
 		</section>
 		
 	</main>
 </Layout>
+
+<script>
+	const readMoreBtns = document.querySelectorAll('.read-more-btn');
+
+	readMoreBtns.forEach(btn => {
+		btn.addEventListener('click', () => {
+			const container = btn.closest('.project');
+
+			container?.querySelector('.read-more-content')?.classList.remove('hidden');
+
+			btn.remove();
+		})
+	})
+</script>

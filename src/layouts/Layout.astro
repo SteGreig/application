@@ -33,6 +33,20 @@ const { title } = Astro.props;
 		mask-image: linear-gradient(to bottom, rgb(24, 23, 23) 50%, transparent);
 		backdrop-filter: grayscale(1);
 	}
+	
+	a {
+		@apply transition duration-300;
+	}
+
+	.btn {
+		@apply transition duration-300 font-medium rounded border border-grey-300 hover:border-grey-900 focus:border-grey-900 px-3 py-2 leading-tight inline-flex items-center;
+	}
+	
+	.btn svg {
+		width: 1em;
+		height: 1em;
+		@apply ml-2;
+	}
 
 	.container {
 		@apply max-w-screen-lg mx-auto;
@@ -46,8 +60,16 @@ const { title } = Astro.props;
 		@apply text-grey-700 mt-6;
 	}
 
+	.copy .heading + .subheading {
+		@apply mt-2;
+	}
+
 	.copy .heading {
 		@apply mb-8;
+	}
+
+	.copy .heading:has(+ .subheading) {
+		@apply mb-0;
 	}
 
 	.copy > * + * {
@@ -65,5 +87,9 @@ const { title } = Astro.props;
 	.content-img:after {
 		content: "";
 		@apply absolute border border-grey-900 w-full top-3 left-3 lg:top-6 lg:left-6 aspect-square	rounded-xl z-10;
+	}
+
+	.read-more-btn {
+		@apply transition duration-300 ml-1 text-grey-700 hover:text-grey-900 border-b border-grey-300 hover:border-grey-900;
 	}
 </style>

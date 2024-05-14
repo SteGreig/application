@@ -44,7 +44,7 @@ module.exports = {
         "-20": "-20",
       },
       borderRadius: {
-        DEFAULT: '10px',
+        DEFAULT: '5px',
 				"xl": '20px',
 				"2xl": '30px',
       },
