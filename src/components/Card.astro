@@ -1,61 +1,63 @@
 ---
-interface Props {
-	title: string;
-	body: string;
-	href: string;
-}
+import type {CardType} from '../types/Card.ts'
 
-const { href, title, body } = Astro.props;
+const { title, subtitle, image, link, classes, variant } = Astro.props as CardType;
+
+const large = variant === 'large' ? true : false;
 ---
 
-<li class="link-card">
-	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
-	</a>
-</li>
+<div class={`card ${classes} flex`}>
+  <div class={`border border-grey-300 transition duration-300 ${large ? 'p-5 lg:p-7 rounded-2xl' : ' p-4 lg:p-5 rounded-xl'}`}>
+
+    {link && image ? (
+      <a class="hover:cursor-alias" href={link}>
+        {image && (
+          <img class={`${large ? 'rounded-xl' : 'rounded-lg'}`} src={image} alt={title}>
+        )}
+      </a>
+    ) : ''}
+
+    {!link && image ? (
+      <img class={`${large ? 'rounded-xl' : 'rounded-lg'}`} src={image} alt={title}>
+    ) : ''}
+
+    <div class={`${large ? 'mt-4 lg:mt-6 mb-2 lg:mb-4' : 'mt-4 lg:mt-4'}`}>
+
+      <h2 class={`${large ? 'text-2xl xl:text-4xl tracking-[-1px] mb-1' : 'text-xl'}`}>
+        {link ? (
+          <a class="flex items-baseline" href={link}>
+            {title}
+            <svg class="icon w-4 h-4 ml-2 opacity-0 -translate-x-2 transition duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M328 96h24v24V360v24H304V360 177.9L81 401l-17 17L30.1 384l17-17 223-223H88 64V96H88 328z"/></svg>
+          </a>
+        ) : (
+          {title}
+        )}
+      </h2>
+
+      {subtitle && (
+        <p class="text-grey-700">{subtitle}</p>
+      )}
+
+    </div>
+
+    <slot />
+
+    {link && large && (
+      <a class="btn mt-4 lg:mt-5" href={link}>
+        <span>Launch</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M328 96h24v24V360v24H304V360 177.9L81 401l-17 17L30.1 384l17-17 223-223H88 64V96H88 328z"/></svg>
+      </a>
+    )}
+  </div>
+</div>
+
 <style>
-	.link-card {
-		list-style: none;
-		display: flex;
-		padding: 1px;
-		background-color: #23262d;
-		background-image: none;
-		background-size: 400%;
-		border-radius: 7px;
-		background-position: 100%;
-		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-	}
-	.link-card > a {
-		width: 100%;
-		text-decoration: none;
-		line-height: 1.4;
-		padding: calc(1.5rem - 1px);
-		border-radius: 8px;
-		color: white;
-		background-color: #23262d;
-		opacity: 0.8;
-	}
-	h2 {
-		margin: 0;
-		font-size: 1.25rem;
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-	p {
-		margin-top: 0.5rem;
-		margin-bottom: 0;
-	}
-	.link-card:is(:hover, :focus-within) {
-		background-position: 0;
-		background-image: var(--accent-gradient);
-	}
-	.link-card:is(:hover, :focus-within) h2 {
-		color: rgb(var(--accent-light));
-	}
+  .card:has(a:hover) .btn,
+  .card:has(a:hover) > div {
+    @apply border-grey-900;
+  }
+
+  .card:has(a:hover) h2 a .icon {
+    @apply opacity-100 translate-x-0;
+  }
 </style>

@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import LogoCarousel from '../components/LogoCarousel.astro';
-import Project from '../components/Project.astro';
+import Card from '../components/Card.astro';
+import CardCarousel from '../components/CardCarousel.astro';
 ---
 
 <Layout title="Creative Front-end Developer - Ste Greig">
@@ -57,7 +58,7 @@ import Project from '../components/Project.astro';
 			</div>
 
 			<div class="flex flex-wrap max-w-screen-3xl mx-auto p-2 lg:px-4 xl:px-8 pt-8 lg:pt-16">
-				<Project
+				<Card
 					variant="large"
 					title="Messi vs Ronaldo"
 					subtitle='messivsronaldo.app'
@@ -76,9 +77,9 @@ import Project from '../components/Project.astro';
 							
 						<p>In the year from October 2022 to September 2023, the site had 11.7 million users, an average of 32,000 per day. It has also surpassed 100k users in a single day on 8 occasions, including twice breaking the 200k barrier! The all time high was 226,323 on Monday 19th December 2022, the day after Lionel Messi's World Cup triumph.</p>
 					</div>
-				</Project>
+				</Card>
 
-				<Project
+				<Card
 					variant="large"
 					title="Top Scorers Club"
 					subtitle='topscorers.club'
@@ -93,43 +94,53 @@ import Project from '../components/Project.astro';
 						
 					<p>Without going into too much detail about the data side, the site makes creative use of the Google Sheets API, auto-updates and costs nothing to run.</p>
 				</div>
-				</Project>
+				</Card>
 			</div>
 
-			<div class="flex px-12">
-				<Project
-					title="Personal Site"
-					subtitle='ste.digital'
-					link="https://ste.digital"
-					image="/ctc.jpg"
-					classes="w-full md:w-1/2 lg:w-1/4 p-3"
-				/>
-				<Project
-					title="Personal Site"
-					subtitle='ste.digital'
-					link="https://ste.digital"
-					image="/ctc.jpg"
-					classes="w-full md:w-1/2 lg:w-1/4 p-3"
-				/>
-				<Project
-					title="Personal Site"
-					subtitle='ste.digital'
-					link="https://ste.digital"
-					image="/ctc.jpg"
-					classes="w-full md:w-1/2 lg:w-1/4 p-3"
-				/>
-				<Project
-					title="Personal Site"
-					subtitle='ste.digital'
-					link="https://ste.digital"
-					image="/ctc.jpg"
-					classes="w-full md:w-1/2 lg:w-1/4 p-3"
-				/>
-			</div>
+			<CardCarousel
+				cards={[
+					{
+						'title': "Personal Site",
+						'subtitle': 'ste.digital',
+						'link': "https://ste.digital",
+						'image': "/ctc.jpg"
+					},
+					{
+						'title': "Personal Site",
+						'subtitle': 'ste.digital',
+						'link': "https://ste.digital",
+						'image': "/ctc.jpg"
+					},
+					{
+						'title': "Personal Site",
+						'subtitle': 'ste.digital',
+						'link': "https://ste.digital",
+						'image': "/ctc.jpg"
+					},
+					{
+						'title': "Personal Site",
+						'subtitle': 'ste.digital',
+						'link': "https://ste.digital",
+						'image': "/ctc.jpg"
+					},
+					{
+						'title': "Personal Site",
+						'subtitle': 'ste.digital',
+						'link': "https://ste.digital",
+						'image': "/ctc.jpg"
+					},
+					{
+						'title': "Personal Site",
+						'subtitle': 'ste.digital',
+						'link': "https://ste.digital",
+						'image': "/ctc.jpg"
+					}
+				]}
+			/>
 
 		</section>
 
-		<section class="bg-grey-100 px-6 py-16 md:py-0">
+		<section class="bg-gradient-to-b from-grey-100 to-offwhite px-6 py-16 md:py-0">
 			<div class="md:flex md:items-start">
 				<div class="w-full max-w-128 mx-auto copy md:pr-10 xl:pr-0 md:py-20 lg:py-32">
 					<h2 class="heading">I love writing about web tech too</h2>
@@ -140,7 +151,7 @@ import Project from '../components/Project.astro';
 						
 					<p>I also have vast experience in marketing, which has facilitated a well-rounded skill set; lead-gen, e-commerce, CRO, SEO, A/B testing...</p>
 						
-					<p>I wouldn't quite describe myself as full-stack, but I love JavaScript and I've loved the transition to working in modern JS frameworks over the last 6-7 years, with considerable experience in Next.js, Gatsby, Astro and Eleventy.</p>
+					<p>I wouldn't quite describe myself as full-stack, but I love JavaScript and I've enjoyed the transition to working in modern JS frameworks over the last 6-7 years, with experience in Next.js, Gatsby, Astro and Eleventy.</p>
 				</div>
 				<div class="mt-8 md:mt-0 md:py-32 md:mr-auto flex justify-center items-center md:sticky md:top-0 lg:h-screen">
 					<figure class="content-img">

@@ -1,0 +1,189 @@
+---
+import Card from './Card.astro';
+import type {CardType} from '../types/Card.ts'
+
+export interface Props {
+  title?: string;
+  cards?: any[];
+}
+
+const { title, cards } = Astro.props;
+---
+
+<div class="carousel-wrap max-w-screen-3xl mx-auto p-2 lg:px-5 xl:px-[3.25rem] relative">
+
+  <div class="flex justify-between items-end md:mb-2 lg:mb-4 3xl:mb-6">
+
+    <div class="flex flex-col sm:flex-row sm:items-baseline">
+      <h3 class="m-0 heading text-2xl/tight lg:text-3xl/tight xl:text-4xl/tight 3xl:text-5xl text-navy">
+        {title}
+      </h3>
+    </div>
+
+    <div class="flex {{products|length < 2 ? 'hidden' : products|length < 3 ? 'xs:hidden' : products|length < 4 ? 'md:hidden' : products|length < 5 ? 'xl:hidden'}}">
+      <button class="carousel-arrow carousel-arrow-left flex rounded w-9 h-9 xl:w-11 xl:h-11 bg-gray-500 xl:hover:bg-gray-600 transition duration-300 4xl:absolute 4xl:top-1/2 4xl:-left-10" aria-label="Arrow left">
+        L
+      </button>
+      
+      <button class="ml-2 carousel-arrow carousel-arrow-right flex rounded w-9 h-9 xl:w-11 xl:h-11 bg-gray-500 xl:hover:bg-gray-600 transition duration-300 4xl:absolute 4xl:top-1/2 4xl:-right-10" aria-label="Arrow right">
+        R
+      </button>
+    </div>
+  </div>
+
+  <div class="carousel-container carousel-container--draggable flex overflow-x-auto hide-scrollbars snap-mandatory snap-x py-4 transition duration-500">
+
+    {cards?.map((card: CardType) => (
+      <div class="carousel-item snap-start flex w-[300px] xl:w-1/4 p-2 lg:p-3 flex-none">
+        
+        <Card
+					title={card.title}
+					subtitle={card.subtitle}
+					link={card.link}
+					image={card.image}
+					classes={card.classes}
+				/>
+        
+      </div>
+    ))}
+
+  </div>
+
+</div>
+
+
+<script>
+
+var carouselWraps = document.querySelectorAll(".carousel-wrap");
+
+if(carouselWraps) {
+
+  carouselWraps.forEach((carousel) => {
+
+    var carouselArrows = carousel.querySelectorAll(".carousel-arrow");
+    var carouselDots = carousel.querySelectorAll(".carousel-dots button");
+
+    var carouselContainer = carousel.querySelector('.carousel-container');
+    var carouselItem = carousel.querySelectorAll('.carousel-item');
+    var x;
+
+    carouselArrows.forEach(arrow => {
+      arrow.addEventListener("click", function() {
+        carousel.querySelector('.carousel-arrow-left').classList.remove('opacity-30');
+  
+        if (arrow.classList.contains('carousel-arrow-right')) {
+          x = (carouselItem[0].offsetWidth) + carouselContainer.scrollLeft;
+          carouselContainer.scrollTo({
+            left: x,
+            behavior: "smooth",
+          });
+        } else {
+          x = (carouselItem[0].offsetWidth) - carouselContainer.scrollLeft;
+          carouselContainer.scrollTo({
+            left: -x,
+            behavior: "smooth",
+          });
+        }
+      })
+    })
+
+    carouselDots.forEach(dot => {
+
+      var dotsParent = dot.parentElement;
+      var dotIndex = [...dotsParent.children].indexOf(dot);
+
+      dot.addEventListener("click", function() {
+
+        //console.log(dotIndex);
+
+        x = (carouselItem[0].offsetWidth * dotIndex);
+        carouselContainer.scrollTo({
+          left: x,
+          behavior: "smooth",
+        });
+        
+      })
+
+      carousel.addEventListener('click', function() {
+
+        carouselItem.forEach(item => {
+          item.querySelector('img').classList.remove('invisible');
+          item.querySelector('img').classList.add('visible');
+        })
+
+        setTimeout(function() {
+          var scrollPos = carouselContainer.scrollLeft;
+    
+          if(Math.ceil((carouselItem[0].offsetWidth * dotIndex)/100)*100 === Math.ceil(scrollPos/100)*100) {
+            
+            carouselDots.forEach(dot => {
+              dot.classList.remove('opacity-100');
+              dot.classList.add('opacity-70');
+            });
+            carousel.querySelector(`.carousel-dots button:nth-child(${dotIndex+1})`).classList.remove('opacity-70');
+            carousel.querySelector(`.carousel-dots button:nth-child(${dotIndex+1})`).classList.add('opacity-100');
+            
+          }
+        }, 750);
+      });
+    })
+    
+  });
+
+}
+
+
+// Drag to scroll functionality
+const carousels = document.querySelectorAll(".carousel-container--draggable");
+
+if (carousels) {
+
+  carousels.forEach((carousel) => {
+    const preventClick = (e) => {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+    }
+    let isDown = false;
+    let isDragged = false;
+    let startX;
+    let scrollLeft;
+
+    carousel.addEventListener("mousedown", e => {
+      isDown = true;
+      carousel.classList.remove("snap-x");
+      startX = e.pageX - carousel.offsetLeft;
+      scrollLeft = carousel.scrollLeft;
+    });
+    carousel.addEventListener("mouseleave", () => {
+      isDown = false;
+      carousel.classList.add("snap-x");
+    });
+    carousel.addEventListener("mouseup", (e) => {
+      isDown = false;
+      const elements = carousel.querySelectorAll("a");
+      if(isDragged){
+          for(let i = 0; i<elements.length; i++){
+                elements[i].addEventListener("click", preventClick);
+          }
+      }
+      else{
+          for(let i = 0; i<elements.length; i++){
+                elements[i].removeEventListener("click", preventClick);
+          }
+      }
+      carousel.classList.add("snap-x");
+      isDragged =  false;
+    });
+    carousel.addEventListener("mousemove", e => {
+      if (!isDown) return;
+      isDragged =  true;
+      e.preventDefault();
+      const x = e.pageX - carousel.offsetLeft;
+      const walk = (x - startX);
+      carousel.scrollLeft = scrollLeft - walk;
+    });
+  })
+
+}
+
+</script>
