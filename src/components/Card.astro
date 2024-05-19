@@ -6,8 +6,8 @@ const { title, subtitle, image, link, classes, variant } = Astro.props as CardTy
 const large = variant === 'large' ? true : false;
 ---
 
-<div class={`card ${classes} flex`}>
-  <div class={`border border-grey-300 transition duration-300 ${large ? 'p-5 lg:p-7 rounded-2xl' : ' p-4 lg:p-5 rounded-xl'}`}>
+<div class={`w-full card ${classes} flex`}>
+  <div class={`w-full border border-grey-300 transition duration-300 ${large ? 'p-5 lg:p-7 rounded-2xl' : ' p-4 lg:p-5 rounded-xl'}`}>
 
     {link && image ? (
       <a class="hover:cursor-alias" href={link}>
