@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import LogoCarousel from '../components/LogoCarousel.astro';
 import Card from '../components/Card.astro';
 import CardCarousel from '../components/CardCarousel.astro';
+import TimelineEvent from '../components/TimelineEvent.astro';
 ---
 
 <Layout title="Creative Front-end Developer - Ste Greig">
@@ -172,6 +173,113 @@ import CardCarousel from '../components/CardCarousel.astro';
 				</div>
 			</div>
 		</section>
+
+		<section class="bg-offwhite pt-8 md:pt-10 lg:pt-16 pb-16 md:pb-20 lg:pb-32">
+			<div class="max-w-screen-md mx-auto text-center">
+				<h2 class="heading">My journey and experience</h2>
+				<p class="subheading">How I got to where I am today</p>
+			</div>
+			<ol class="w-full mx-auto max-w-screen-sm lg:max-w-screen-lg xl:max-w-[1066px] pl-8 pr-4 lg:px-4 xl:px-0 flex flex-col lg:flex-row flex-wrap items-center lg:items-start lg:justify-between pt-4 lg:pt-8 mt-8 lg:mt-20 relative after:absolute after:left-4 lg:after:left-1/2 after:w-0 after:h-full after:top-0 after:border-r after:border-dashed after:border-grey-300">
+				<TimelineEvent
+					year="2004"
+					title="The journey begins"
+					desc="A long lost pal gives me a dodgy copy of Adobe Photoshop 7.0 before school one morning, and I'm destined for a career on the web ever since!"
+					margins="mt-4 lg:mt-0"
+				/>
+				<TimelineEvent
+					year="2005"
+					title="First taste of the industry"
+					desc="At 15, I am recruited by the Hereford United Football Club web team to contribute noughties style website graphics (you know, like rounded corners!)"
+					margins="mt-4 lg:mt-24"
+				/>
+				<TimelineEvent
+					year="2008"
+					title="Leave school"
+					desc="I leave Ashfield School & Sixth Form with 9 GCSEs (including As in Maths English & Art), and 3 A-Levels (including an A in ICT). I then head to Nottingham Trent University to study Multimedia."
+					margins="mt-4 lg:-mt-16"
+				/>
+				<TimelineEvent
+					year="2010"
+					title="First proper job"
+					desc="After my second year of uni I land my first Web Designer role at 19, at Nottingham marketing agency, Adtrak, working full time initially and part time throughout my final year of uni."
+				/>
+				<TimelineEvent
+					year="2011"
+					title="Graduate from university"
+					desc="I graduate from Nottingham Trent University with a First Class Degree in BA (Hons) Multimedia (specialising in Interactive Media)."
+					margins="mt-4 lg:-mt-16"
+				/>
+				<TimelineEvent
+					year="2012"
+					title="Launch messivsronaldo.net"
+				/>
+				<TimelineEvent
+					year="2012"
+					title="Land a book deal"
+					desc="After blogging incessantly about CSS for the previous few years I am approached by global publishers Wiley, who commission me to write an extensive book on advanced CSS."
+					margins="mt-4 lg:mt-0"
+				/>
+				<TimelineEvent
+					year="2013"
+					title="My first senior role... in New Zealand!"
+					desc="My partner and I move to New Zealand for a year, where at 22 I land my first senior position at a small studio in Auckland, joining Austin Digital as Senior Designer & Programmer."
+				/>
+				<TimelineEvent
+					year="2013"
+					title="CSS3 Pushing the Limits is published"
+					desc="In September 2023, after months of very hard work and very late nights, my book on the cutting edge CSS3 modules - totalling 384 pages - was published."
+					margins="mt-4 lg:-mt-4"
+				/>
+				<TimelineEvent
+					year="2014"
+					title="Back to the UK"
+					desc="Fresh from travelling the length and breadth of New Zealand, we move to South Wales where I join WebBox Digital as Lead UI Designer & Front-end Developer."
+				/>
+				<TimelineEvent
+					year="2015"
+					title="Back to Adtrak"
+					desc="After moving back to Nottingham in 2015, I accept the offer of a senior role at my former employer, Adtrak!"
+					margins="mt-4 lg:-mt-4"
+				/>
+				<TimelineEvent
+					year="2016"
+					title=" Hannah and I get married!"
+					margins="mt-4 lg:mt-24"
+				/>
+				<TimelineEvent
+					year="2016"
+					title="Sell messivsronaldo.net"
+					desc="In 2016, 4 years after launching, I sell my messivsronaldo.net website for a five-figure sum."
+					margins="mt-4 lg:mt-0"
+				/>
+				<TimelineEvent
+					year="2018"
+					title="2018 - First child, Leo, born on 30th January"
+					margins="mt-4 lg:mt-24"
+				/>
+				<TimelineEvent
+					year="2018-19"
+					title="Upskilling"
+					desc="I went big on learning React, Gatsby, ES6 and other more modern web tech."
+					margins="mt-4 lg:-mt-4"
+				/>
+				<TimelineEvent
+					year="2020"
+					title="Launch messivsronaldo.app"
+					desc="4 years after selling the original site, I launch a new Messi vs Ronaldo web app, which has since eclipsed the very successful original iteration in every way."
+				/>
+				<TimelineEvent
+					year="2021"
+					title="Second child, Olly, born on 6th October"
+					margins="mt-4 lg:-mt-4"
+				/>
+				<TimelineEvent
+					year="2024"
+					title="Make decision to leave Adtrak"
+					desc="After many happy years at Adtrak, I decide the time is right to take the next step in my career and take on a new challenge."
+				/>
+			</ol>
+		</section>
 		
 	</main>
 </Layout>
@@ -187,5 +295,51 @@ import CardCarousel from '../components/CardCarousel.astro';
 
 			btn.remove();
 		})
-	})
+	});
+
+	const inViewport = (entries, observer) => {
+		entries.forEach(entry => {
+			entry.target.classList.toggle("in-viewport", entry.isIntersecting);
+		});
+	};
+
+	const obsOptions = {
+		threshold: 1
+	};
+
+	const Obs = new IntersectionObserver(inViewport, obsOptions);
+	
+	document.querySelectorAll('[data-inviewport]').forEach(el => {
+		Obs.observe(el);
+	});
+
+
+	
+
+	// const elementHasIntersected = (entries, o) => {
+	// 	entries.forEach(entry => {
+	// 		entry.target.classList.toggle("in-viewport", entry.isIntersecting);
+	// 	});
+	// };
+	// const ioConfiguration = {
+	// 	/**
+	// 	 * This rootMargin creates a horizontal line vertically centered
+	// 	 * that will help trigger an intersection at that the very point.
+	// 	 */
+	// 	rootMargin: '-50% 0% -50% 0%',
+
+	// 	/**
+	// 	 * This is the default so you could remove it.
+	// 	 * I just wanted to leave it here to make it more explicit
+	// 	 * as this threshold is the only one that works with the above
+	// 	 * rootMargin
+	// 	 */
+	// 	threshold: 0
+	// };
+
+	// const observer = new IntersectionObserver(elementHasIntersected, ioConfiguration);
+
+	// document.querySelectorAll('[data-inviewport]').forEach(el => {
+	// 	observer.observe(el);
+	// });
 </script>
