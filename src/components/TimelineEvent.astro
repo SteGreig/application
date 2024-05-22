@@ -2,34 +2,34 @@
 export interface Props {
   year?: string;
   title?: string;
-  desc?: string;
   margins?: string;
   classes?: string;
+  highlight?: boolean;
 }
 
-const { year, title, desc, margins, classes } = Astro.props;
+const { year, title, margins, classes, highlight } = Astro.props;
+
 ---
 
 <li class={`tl-event relative block w-full sm:max-w-[445px] ${margins ? margins : 'mt-4 lg:mt-16 first:mt-0'} ${classes}`} data-inviewport>
 
-  <div class={`rounded-xl border border-dashed border-grey-300 p-6`}>
+  <div class={`rounded-xl border ${highlight ? 'border-grey-900' : 'border-dashed border-grey-300'} p-6`}>
 
-    <p class="font-medium mb-2"><span class="text-xl">{year}</span> - {title}</p>
+    <p class="font-medium"><span class="text-xl">{year}</span> - {title}</p>
 
-    {desc && (
-      <p class="text-grey-700">{desc}</p>
-    )}
+    <div class="text-grey-700 mt-2 empty:mt-0"><slot /></div>
 
   </div>
 
-  <span class="tl-event-line absolute top-1/2 right-full lg:left-full w-4 sm:w-[15%] lg:w-[11%] xl:w-[19.5%] h-0 border-b border-dashed border-grey-300 origin-left lg:origin-right"></span>
+  <span class={`tl-event-line absolute top-1/2 right-full lg:left-full w-4 sm:w-[15%] lg:w-[11%] xl:w-[19.5%] h-0 border-b ${highlight ? 'border-grey-900' : 'border-dashed border-grey-300'} origin-left lg:origin-right`}></span>
 
 </li>
 
 <style>
-  .tl-event:nth-child(2n) .tl-event-line {
-    content: "";
-    @apply left-auto right-full origin-left;
+  @media screen and (min-width: 1024px) {
+    .tl-event:nth-child(2n) .tl-event-line {
+      @apply left-auto right-full origin-left;
+    }
   }
 
   .tl-event > div {
@@ -48,9 +48,7 @@ const { year, title, desc, margins, classes } = Astro.props;
   }
 
   .tl-event.in-viewport:nth-child(2n) > div {
-    @media screen and (min-width: 1024px) {
-      transform: scale(1) translateX(0);
-    }
+    transform: scale(1) translateX(0);
   }
 
   .tl-event-line {

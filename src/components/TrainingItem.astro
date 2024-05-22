@@ -1,0 +1,23 @@
+---
+export interface Props {
+  year?: string;
+  title?: string;
+  desc?: string;
+  btns?: object[];
+}
+
+const { year, title, desc, btns } = Astro.props;
+---
+
+<li class="flex justify-between border-b border-grey-300 border-opacity-40 last:border-0 p-[1.625rem]">
+	<p class="mr-10">{year}.</p>
+	<div class="mr-auto">
+		<h4>{title}</h4>
+		<p class="text-sm text-grey-700">{desc}</p>
+	</div>
+	<div>
+    {btns?.map(btn => (
+      <a class="btn" href={btn.link}>{btn.text}</a>
+    ))}
+	</div>
+</li>

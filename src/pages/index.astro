@@ -4,18 +4,19 @@ import LogoCarousel from '../components/LogoCarousel.astro';
 import Card from '../components/Card.astro';
 import CardCarousel from '../components/CardCarousel.astro';
 import TimelineEvent from '../components/TimelineEvent.astro';
+import TrainingItem from '../components/TrainingItem.astro'
 ---
 
 <Layout title="Creative Front-end Developer - Ste Greig">
 	<main>
 
-		<header class="flex fixed top-0 z-50 w-full p-3 pb-24 bg-gradient-to-b from-offwhite">
+		<header class="flex top-0 z-10 w-full p-3">
 			<p>Nottingham, UK</p>
 			<p class="mx-auto text-lg">Hey, Volteras 👋</p>
 			<a class="btn" href="">Get in touch</a>
 		</header>
 		
-		<section class="sticky top-0 z-[-1] bg-offwhite flex flex-col items-center justify-center px-6 py-20 text-center">
+		<section class="sticky top-0 z-[-1] bg-offwhite flex flex-col items-center justify-center px-6 pt-9 pb-20 text-center">
 			<figure class="relative after:absolute after:left-0 after:bottom-0 after:w-full after:h-1/2 after:bg-gradient-to-t after:from-offwhite">
 				<img width="220" height="221" class="mix-blend-darken" src="/ste-profile.png" alt="Ste Greig profile picture">
 			</figure>
@@ -179,106 +180,173 @@ import TimelineEvent from '../components/TimelineEvent.astro';
 				<h2 class="heading">My journey and experience</h2>
 				<p class="subheading">How I got to where I am today</p>
 			</div>
-			<ol class="w-full mx-auto max-w-screen-sm lg:max-w-screen-lg xl:max-w-[1066px] pl-8 pr-4 lg:px-4 xl:px-0 flex flex-col lg:flex-row flex-wrap items-center lg:items-start lg:justify-between pt-4 lg:pt-8 mt-8 lg:mt-20 relative after:absolute after:left-4 lg:after:left-1/2 after:w-0 after:h-full after:top-0 after:border-r after:border-dashed after:border-grey-300">
-				<TimelineEvent
-					year="2004"
-					title="The journey begins"
-					desc="A long lost pal gives me a dodgy copy of Adobe Photoshop 7.0 before school one morning, and I'm destined for a career on the web ever since!"
-					margins="mt-4 lg:mt-0"
-				/>
-				<TimelineEvent
-					year="2005"
-					title="First taste of the industry"
-					desc="At 15, I am recruited by the Hereford United Football Club web team to contribute noughties style website graphics (you know, like rounded corners!)"
-					margins="mt-4 lg:mt-24"
-				/>
-				<TimelineEvent
-					year="2008"
-					title="Leave school"
-					desc="I leave Ashfield School & Sixth Form with 9 GCSEs (including As in Maths English & Art), and 3 A-Levels (including an A in ICT). I then head to Nottingham Trent University to study Multimedia."
-					margins="mt-4 lg:-mt-16"
-				/>
-				<TimelineEvent
-					year="2010"
-					title="First proper job"
-					desc="After my second year of uni I land my first Web Designer role at 19, at Nottingham marketing agency, Adtrak, working full time initially and part time throughout my final year of uni."
-				/>
-				<TimelineEvent
-					year="2011"
-					title="Graduate from university"
-					desc="I graduate from Nottingham Trent University with a First Class Degree in BA (Hons) Multimedia (specialising in Interactive Media)."
-					margins="mt-4 lg:-mt-16"
-				/>
+
+			<ol class="w-full mx-auto max-w-screen-sm lg:max-w-screen-lg xl:max-w-[1066px] pl-8 pr-4 lg:px-4 xl:px-0 flex flex-col lg:flex-row flex-wrap items-center lg:items-start lg:justify-between py-4 lg:py-8 xl:pb-20 mt-8 lg:mt-20 relative after:absolute after:left-4 lg:after:left-1/2 after:w-0 after:h-full after:top-0 after:border-r after:border-dashed after:border-grey-300">
+
+				<TimelineEvent year="2004" title="The journey begins" margins="mt-4 lg:mt-0">
+					<p>A long lost pal gives me a dodgy copy of Adobe Photoshop 7.0 before school one morning, and I'm destined for a career on the web ever since!</p>
+				</TimelineEvent>
+
+				<TimelineEvent year="2005" title="First taste of the industry" margins="mt-4 lg:mt-24">
+					<p>At 15, I am recruited by the Hereford United Football Club web team to contribute noughties style website graphics (you know, like rounded corners!)</p>
+				</TimelineEvent>
+				
+				<TimelineEvent year="2008" title="Leave school" margins="mt-4 lg:-mt-16">
+					<p>I leave Ashfield School & Sixth Form with 9 GCSEs (including As in Maths English & Art), and 3 A-Levels (including an A in ICT). I then head to Nottingham Trent University to study Multimedia.</p>
+				</TimelineEvent>
+
+				<TimelineEvent year="2010" title="First proper job" highlight={true}>
+					<p>After my second year of uni I land my first Web Designer role at 19, at Nottingham marketing agency, <b>Adtrak</b>, working full time initially and part time throughout my final year of uni.</p>
+				</TimelineEvent>
+
+				<TimelineEvent year="2011" title="Graduate from university" margins="mt-4 lg:-mt-16" highlight={true}>
+					<p>I graduate from Nottingham Trent University with a <b>First Class Degree</b> in <b>BA (Hons) Multimedia</b> (specialising in Interactive Media).</p>
+				</TimelineEvent>
+
 				<TimelineEvent
 					year="2012"
 					title="Launch messivsronaldo.net"
 				/>
-				<TimelineEvent
-					year="2012"
-					title="Land a book deal"
-					desc="After blogging incessantly about CSS for the previous few years I am approached by global publishers Wiley, who commission me to write an extensive book on advanced CSS."
-					margins="mt-4 lg:mt-0"
-				/>
-				<TimelineEvent
-					year="2013"
-					title="My first senior role... in New Zealand!"
-					desc="My partner and I move to New Zealand for a year, where at 22 I land my first senior position at a small studio in Auckland, joining Austin Digital as Senior Designer & Programmer."
-				/>
-				<TimelineEvent
-					year="2013"
-					title="CSS3 Pushing the Limits is published"
-					desc="In September 2023, after months of very hard work and very late nights, my book on the cutting edge CSS3 modules - totalling 384 pages - was published."
-					margins="mt-4 lg:-mt-4"
-				/>
-				<TimelineEvent
-					year="2014"
-					title="Back to the UK"
-					desc="Fresh from travelling the length and breadth of New Zealand, we move to South Wales where I join WebBox Digital as Lead UI Designer & Front-end Developer."
-				/>
-				<TimelineEvent
-					year="2015"
-					title="Back to Adtrak"
-					desc="After moving back to Nottingham in 2015, I accept the offer of a senior role at my former employer, Adtrak!"
-					margins="mt-4 lg:-mt-4"
-				/>
+
+				<TimelineEvent year="2012" title="Land a book deal" margins="mt-4 lg:mt-0">
+					<p>After blogging incessantly about CSS for the previous few years I am approached by global publishers Wiley, who commission me to write an extensive book on advanced CSS.</p>
+				</TimelineEvent>
+
+				<TimelineEvent year="2013" title="My first senior role... in New Zealand!" highlight={true}>
+					<p>My partner and I move to New Zealand for a year, where at 22 I land my first senior position at a small studio in Auckland, joining <b>Austin Digital</b> as Senior Designer & Programmer.</p>
+				</TimelineEvent>
+
+				<TimelineEvent year="2013" title="CSS3 Pushing the Limits is published" margins="mt-4 lg:-mt-4">
+					<p>In September 2023, after months of very hard work and very late nights, my book on the cutting edge CSS3 modules - totalling 384 pages - was published.</p>
+				</TimelineEvent>
+
+				<TimelineEvent year="2014" title="Back to the UK" highlight={true}>
+					<p>Fresh from travelling the length and breadth of New Zealand, we move to South Wales where I join <b>WebBox Digital</b> as Lead UI Designer & Front-end Developer.</p>
+				</TimelineEvent>
+
+				<TimelineEvent year="2015" title="Back to Adtrak" margins="mt-4 lg:-mt-4" highlight={true}>
+					<p>After moving back to Nottingham in 2015, I accept the offer of a senior role at my former employer, <b>Adtrak</b>!</p>
+				</TimelineEvent>
+
 				<TimelineEvent
 					year="2016"
 					title=" Hannah and I get married!"
 					margins="mt-4 lg:mt-24"
 				/>
-				<TimelineEvent
-					year="2016"
-					title="Sell messivsronaldo.net"
-					desc="In 2016, 4 years after launching, I sell my messivsronaldo.net website for a five-figure sum."
-					margins="mt-4 lg:mt-0"
-				/>
+
+				<TimelineEvent year="2016" title="Sell messivsronaldo.net" margins="mt-4 lg:mt-0">
+					<p>In 2016, 4 years after launching, I sell my messivsronaldo.net website for a five-figure sum.</p>
+				</TimelineEvent>
+
 				<TimelineEvent
 					year="2018"
-					title="2018 - First child, Leo, born on 30th January"
+					title="First child, Leo, born on 30th January"
 					margins="mt-4 lg:mt-24"
 				/>
-				<TimelineEvent
-					year="2018-19"
-					title="Upskilling"
-					desc="I went big on learning React, Gatsby, ES6 and other more modern web tech."
-					margins="mt-4 lg:-mt-4"
-				/>
-				<TimelineEvent
-					year="2020"
-					title="Launch messivsronaldo.app"
-					desc="4 years after selling the original site, I launch a new Messi vs Ronaldo web app, which has since eclipsed the very successful original iteration in every way."
-				/>
+
+				<TimelineEvent year="2018-19" title="Upskilling" margins="mt-4 lg:-mt-4">
+					<p>I went big on learning React, Gatsby, ES6 and other more modern web tech.</p>
+				</TimelineEvent>
+
+				<TimelineEvent year="2020" title="Launch messivsronaldo.app">
+					<p>4 years after selling the original site, I launch a new Messi vs Ronaldo web app, which has since eclipsed the very successful original iteration in every way.</p>
+				</TimelineEvent>
+
 				<TimelineEvent
 					year="2021"
 					title="Second child, Olly, born on 6th October"
 					margins="mt-4 lg:-mt-4"
 				/>
-				<TimelineEvent
-					year="2024"
-					title="Make decision to leave Adtrak"
-					desc="After many happy years at Adtrak, I decide the time is right to take the next step in my career and take on a new challenge."
-				/>
+
+				<TimelineEvent year="2024" title="Make decision to leave Adtrak" highlight={true}>
+					<p>After many happy years at Adtrak, I decide the time is right to take the next step in my career and take on a new challenge.</p>
+				</TimelineEvent>
 			</ol>
+		</section>
+
+		<section class="bg-gradient-to-b from-offwhite via-grey-100 to-grey-100 pt-4 md:pt-8 pb-16 md:pb-20 lg:pb-32">
+			<div class="max-w-screen-md mx-auto text-center">
+				<h2 class="heading">Training and teaching</h2>
+				<p class="subheading">As well as client work, I've also always been heavily involved in training and upskilling the rest of the 20+ strong web team at Adtrak.</p>
+				<p class="subheading">This passion for sharing knowledge has been present from the outset, holding my first training session on CSS3 as a fresh-faced junior in 2011, back when implementing rounded corners without images was still a novelty!</p>
+			</div>
+
+			<div class="w-full max-w-[1066px] mx-auto rounded-[60px] border border-grey-300 mt-8 lg:mt-20">
+				<h3 class="w-full py-7 border-b border-grey-300 font-medium text-center">Some of my training highlights</h3>
+				<ol>
+					<TrainingItem
+						year="2022"
+						title="JavaScript Fundamentals"
+						desc="A 4 part, 6 hour course on the basics of JavaScript"
+						btns={[
+							{
+								'text': 'View materials',
+								'link': 'https://github.com/SteGreig/js-training'
+							}
+						]}
+					/>
+					
+					<TrainingItem
+						year="2022"
+						title="JavaScript Fundamentals"
+						desc="A 4 part, 6 hour course on the basics of JavaScript"
+						btns={[
+							{
+								'text': 'View materials',
+								'link': 'https://github.com/SteGreig/js-training'
+							}
+						]}
+					/>
+
+					<TrainingItem
+						year="2022"
+						title="JavaScript Fundamentals"
+						desc="A 4 part, 6 hour course on the basics of JavaScript"
+						btns={[
+							{
+								'text': 'View materials',
+								'link': 'https://github.com/SteGreig/js-training'
+							}
+						]}
+					/>
+
+					<TrainingItem
+						year="2022"
+						title="JavaScript Fundamentals"
+						desc="A 4 part, 6 hour course on the basics of JavaScript"
+						btns={[
+							{
+								'text': 'View materials',
+								'link': 'https://github.com/SteGreig/js-training'
+							}
+						]}
+					/>
+
+					<TrainingItem
+						year="2022"
+						title="JavaScript Fundamentals"
+						desc="A 4 part, 6 hour course on the basics of JavaScript"
+						btns={[
+							{
+								'text': 'View materials',
+								'link': 'https://github.com/SteGreig/js-training'
+							}
+						]}
+					/>
+
+					<TrainingItem
+						year="2022"
+						title="JavaScript Fundamentals"
+						desc="A 4 part, 6 hour course on the basics of JavaScript"
+						btns={[
+							{
+								'text': 'View materials',
+								'link': 'https://github.com/SteGreig/js-training'
+							}
+						]}
+					/>
+				</ol>
+			</div>
 		</section>
 		
 	</main>
@@ -299,7 +367,11 @@ import TimelineEvent from '../components/TimelineEvent.astro';
 
 	const inViewport = (entries, observer) => {
 		entries.forEach(entry => {
-			entry.target.classList.toggle("in-viewport", entry.isIntersecting);
+			//entry.target.classList.toggle("in-viewport", entry.isIntersecting);
+			if (entry.isIntersecting) {
+					// Add class when the element is fully or partially visible
+					entry.target.classList.add('in-viewport');
+			}
 		});
 	};
 
