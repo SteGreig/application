@@ -10,21 +10,25 @@ import TrainingItem from '../components/TrainingItem.astro'
 <Layout title="Creative Front-end Developer - Ste Greig">
 	<main>
 
-		<header class="flex top-0 z-10 w-full p-3">
-			<p>Nottingham, UK</p>
-			<p class="mx-auto text-lg">Hey, Volteras 👋</p>
-			<a class="btn" href="">Get in touch</a>
-		</header>
-		
-		<section class="sticky top-0 z-[-1] bg-offwhite flex flex-col items-center justify-center px-6 pt-9 pb-20 text-center">
-			<figure class="relative after:absolute after:left-0 after:bottom-0 after:w-full after:h-1/2 after:bg-gradient-to-t after:from-offwhite">
-				<img width="220" height="221" class="mix-blend-darken" src="/ste-profile.png" alt="Ste Greig profile picture">
-			</figure>
-			<h1 class="text-grey-900 text-5xl md:text-7xl tracking-[-1px] -mt-9 relative z-10"><span class="text-grey-500">I'm</span> Ste Greig</h1>
-			<p class="mt-[6px]">Front-end Developer <span class="mx-1 md:mx-4">/</span> Design Engineer</p>
-			<p class="mt-10 max-w-[500px] text-center">I'm a creative developer with a keen eye for design and detail. I'm a Figma veteran, a CSS obsessive, I have a kink for semantic markup, and I love working with data and building reusable components - usually in React, but I'm flexible.</p>
-			<p class="mt-14 text-grey-500">(and I'd like to work for you)</p>
-		</section>
+		<div class="sticky top-0 z-[-1]">
+
+			<header class="flex top-0 z-10 w-full p-3">
+				<p>Nottingham, UK</p>
+				<p class="mx-auto text-lg">Hey, Volteras 👋</p>
+				<a class="btn" href="">Get in touch</a>
+			</header>
+			
+			<section class="bg-offwhite flex flex-col items-center justify-center px-6 pt-9 pb-20 text-center">
+				<figure class="relative after:absolute after:left-0 after:bottom-0 after:w-full after:h-1/2 after:bg-gradient-to-t after:from-offwhite">
+					<img width="220" height="221" class="mix-blend-darken" src="/ste-profile.png" alt="Ste Greig profile picture">
+				</figure>
+				<h1 class="text-grey-900 text-5xl md:text-7xl tracking-[-1px] -mt-9 relative z-10"><span class="text-grey-500">I'm</span> Ste Greig</h1>
+				<p class="mt-[6px]">Front-end Developer <span class="mx-1 md:mx-4">/</span> Design Engineer</p>
+				<p class="mt-10 max-w-[500px] text-center">I'm a creative developer with a keen eye for design and detail. I'm a Figma veteran, a CSS obsessive, I have a kink for semantic markup, and I love working with data and building reusable components - usually in React, but I'm flexible.</p>
+				<p class="mt-14 text-grey-500">(and I'd like to work for you)</p>
+			</section>
+
+		</div>
 
 		<section class="bg-grey-100 px-6 py-16 md:py-0">
 			<div class="md:flex md:items-start">
@@ -54,7 +58,7 @@ import TrainingItem from '../components/TrainingItem.astro'
 		</section>
 
 		<section class="bg-offwhite py-16 md:py-20 lg:py-32">
-			<div class="max-w-screen-md mx-auto text-center">
+			<div class="max-w-screen-md mx-auto text-center px-4">
 				<h2 class="heading">Here are a few of my favourite projects</h2>
 				<p class="subheading">All of the projects below were both designed and built by me in their entirety</p>
 			</div>
@@ -176,7 +180,7 @@ import TrainingItem from '../components/TrainingItem.astro'
 		</section>
 
 		<section class="bg-offwhite pt-8 md:pt-10 lg:pt-16 pb-16 md:pb-20 lg:pb-32">
-			<div class="max-w-screen-md mx-auto text-center">
+			<div class="max-w-screen-md mx-auto text-center px-4">
 				<h2 class="heading">My journey and experience</h2>
 				<p class="subheading">How I got to where I am today</p>
 			</div>
@@ -264,8 +268,8 @@ import TrainingItem from '../components/TrainingItem.astro'
 			</ol>
 		</section>
 
-		<section class="bg-gradient-to-b from-offwhite via-grey-100 to-grey-100 pt-4 md:pt-8 pb-16 md:pb-20 lg:pb-32">
-			<div class="max-w-screen-md mx-auto text-center">
+		<section class="bg-gradient-to-b from-offwhite via-grey-100 to-grey-100 pt-4 md:pt-8 pb-16 md:pb-20 lg:pb-32 px-2">
+			<div class="max-w-screen-md mx-auto text-center px-4">
 				<h2 class="heading">Training and teaching</h2>
 				<p class="subheading">As well as client work, I've also always been heavily involved in training and upskilling the rest of the 20+ strong web team at Adtrak.</p>
 				<p class="subheading">This passion for sharing knowledge has been present from the outset, holding my first training session on CSS3 as a fresh-faced junior in 2011, back when implementing rounded corners without images was still a novelty!</p>
@@ -280,6 +284,10 @@ import TrainingItem from '../components/TrainingItem.astro'
 						desc="A 4 part, 6 hour course on the basics of JavaScript"
 						btns={[
 							{
+								'text': 'View slides',
+								'link': 'https://github.com/SteGreig/training-materials/blob/main/2022-brief-history-of-javascript-slides.pdf'
+							},
+							{
 								'text': 'View materials',
 								'link': 'https://github.com/SteGreig/js-training'
 							}
@@ -287,65 +295,97 @@ import TrainingItem from '../components/TrainingItem.astro'
 					/>
 					
 					<TrainingItem
-						year="2022"
-						title="JavaScript Fundamentals"
-						desc="A 4 part, 6 hour course on the basics of JavaScript"
+						year="2021"
+						title="Core Web Vitals"
+						desc="An in-depth training session and accompanying cheatsheet"
 						btns={[
 							{
-								'text': 'View materials',
-								'link': 'https://github.com/SteGreig/js-training'
+								'text': 'View slides',
+								'link': 'https://github.com/SteGreig/training-materials/blob/main/2021-core-web-vitals-training-slides.pdf'
+							},
+							{
+								'text': 'View Cheatsheet',
+								'link': 'https://github.com/SteGreig/training-materials/blob/main/2021-core-web-vitals-cheatsheet.pdf'
 							}
 						]}
 					/>
 
 					<TrainingItem
-						year="2022"
-						title="JavaScript Fundamentals"
-						desc="A 4 part, 6 hour course on the basics of JavaScript"
+						year="2020"
+						title="Page Speed Refresher"
+						desc="A detailed refresher on how to optimise for page speed"
 						btns={[
 							{
-								'text': 'View materials',
-								'link': 'https://github.com/SteGreig/js-training'
+								'text': 'View slides',
+								'link': 'https://github.com/SteGreig/training-materials/blob/main/2020-page-speed-training-slides.pdf'
 							}
 						]}
 					/>
 
 					<TrainingItem
-						year="2022"
-						title="JavaScript Fundamentals"
-						desc="A 4 part, 6 hour course on the basics of JavaScript"
+						year="2018"
+						title="Page Speed"
+						desc="A comprehensive breakdown of front-end page speed optimisation techniques"
 						btns={[
 							{
-								'text': 'View materials',
-								'link': 'https://github.com/SteGreig/js-training'
+								'text': 'View slides',
+								'link': 'https://github.com/SteGreig/training-materials/blob/main/2018-page-speed-training.pdf'
 							}
 						]}
 					/>
 
 					<TrainingItem
-						year="2022"
-						title="JavaScript Fundamentals"
-						desc="A 4 part, 6 hour course on the basics of JavaScript"
+						year="2017"
+						title="CSS Selectors"
+						desc="A deep dive into CSS Selectors with accompanying cheatsheet"
 						btns={[
 							{
-								'text': 'View materials',
-								'link': 'https://github.com/SteGreig/js-training'
+								'text': 'View slides',
+								'link': 'https://github.com/SteGreig/training-materials/blob/main/2016-css-selectors-training-slides.pdf'
+							},
+							{
+								'text': 'View cheatsheet',
+								'link': 'https://github.com/SteGreig/training-materials/blob/main/2017-the-ultimate-css-selectors-cheatsheet.pdf'
 							}
 						]}
 					/>
 
 					<TrainingItem
-						year="2022"
-						title="JavaScript Fundamentals"
-						desc="A 4 part, 6 hour course on the basics of JavaScript"
+						year="2017"
+						title="CSS Keyframe Animation"
+						desc="Everything about CSS animation, including a custom built animation playground"
 						btns={[
 							{
-								'text': 'View materials',
-								'link': 'https://github.com/SteGreig/js-training'
+								'text': 'View slides',
+								'link': 'https://github.com/SteGreig/training-materials/blob/main/2017-css-keyframe-animation-training-slides.pdf'
+							},
+							{
+								'text': 'View playground',
+								'link': 'https://css-animation-playground.vercel.app/'
+							}
+						]}
+					/>
+
+					<TrainingItem
+						year="2015"
+						title="Flexbox"
+						desc="Live coded walkthrough and accompanying cheatsheet"
+						btns={[
+							{
+								'text': 'View cheatsheet',
+								'link': 'https://github.com/SteGreig/training-materials/blob/main/2015-flexbox-cheatsheet.pdf'
 							}
 						]}
 					/>
 				</ol>
+			</div>
+		</section>
+
+		<section class="bg-grey-100 pt-4 md:pt-8 pb-16 md:pb-20 lg:pb-32 px-2 py-16 md:py-20 lg:py-32 flex flex-wrap">
+			<div class="w-full md:w-1/4 lg:w-1/3">
+				<h2>Don't just take my word for it</h2>
+				<p>I've established a number of really great working relationships over the years, both with my managers and colleagues, as well as with freelance clients.</p>
+				<p>More references available on request.</p>
 			</div>
 		</section>
 		
@@ -384,34 +424,4 @@ import TrainingItem from '../components/TrainingItem.astro'
 	document.querySelectorAll('[data-inviewport]').forEach(el => {
 		Obs.observe(el);
 	});
-
-
-	
-
-	// const elementHasIntersected = (entries, o) => {
-	// 	entries.forEach(entry => {
-	// 		entry.target.classList.toggle("in-viewport", entry.isIntersecting);
-	// 	});
-	// };
-	// const ioConfiguration = {
-	// 	/**
-	// 	 * This rootMargin creates a horizontal line vertically centered
-	// 	 * that will help trigger an intersection at that the very point.
-	// 	 */
-	// 	rootMargin: '-50% 0% -50% 0%',
-
-	// 	/**
-	// 	 * This is the default so you could remove it.
-	// 	 * I just wanted to leave it here to make it more explicit
-	// 	 * as this threshold is the only one that works with the above
-	// 	 * rootMargin
-	// 	 */
-	// 	threshold: 0
-	// };
-
-	// const observer = new IntersectionObserver(elementHasIntersected, ioConfiguration);
-
-	// document.querySelectorAll('[data-inviewport]').forEach(el => {
-	// 	observer.observe(el);
-	// });
 </script>

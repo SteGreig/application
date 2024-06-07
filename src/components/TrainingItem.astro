@@ -9,15 +9,25 @@ export interface Props {
 const { year, title, desc, btns } = Astro.props;
 ---
 
-<li class="flex justify-between border-b border-grey-300 border-opacity-40 last:border-0 p-[1.625rem]">
-	<p class="mr-10">{year}.</p>
+<li class="training-item flex flex-col md:flex-row justify-between border-b border-grey-300 border-opacity-40 last:border-0 p-5 lg:p-[1.625rem] transition duration-300 lg:hover:scale-[102%] lg:hover:bg-gray-100 lg:hover:shadow group">
+	<p class="mr-10 mb-2 md:mb-0 w-11">{year}.</p>
 	<div class="mr-auto">
-		<h4>{title}</h4>
+		<h4 class="font-medium">{title}</h4>
 		<p class="text-sm text-grey-700">{desc}</p>
 	</div>
-	<div>
+	<div class="mt-4 md:mt-0 flex flex-wrap md:justify-end gap-2">
     {btns?.map(btn => (
-      <a class="btn" href={btn.link}>{btn.text}</a>
+      <a target="_blank" class="btn" href={btn.link}>
+        <span>{btn.text}</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M328 96h24v24V360v24H304V360 177.9L81 401l-17 17L30.1 384l17-17 223-223H88 64V96H88 328z"/></svg>
+      </a>
     ))}
 	</div>
 </li>
+
+<style>
+  body:has(.training-item:hover) .training-item:not(:hover) {
+    opacity: .5;
+    filter: blur(1px);
+  }
+</style>
