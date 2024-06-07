@@ -19,6 +19,9 @@ const { title } = Astro.props;
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+
+		<meta name="robots" content="noindex">
+		<meta name="googlebot" content="noindex">
 	</head>
 	<body>
 		<slot />
@@ -97,6 +100,11 @@ const { title } = Astro.props;
 	.read-more-btn {
 		@apply transition duration-300 ml-1 text-grey-700 hover:text-grey-900 border-b border-grey-300 hover:border-grey-900;
 	}
+
+	body:has(.testimonial:hover) .testimonial:not(:hover) {
+    opacity: .5;
+    filter: blur(1px);
+  }
 
 	.hide-scrollbars {
 		scrollbar-width: none; /* Firefox */

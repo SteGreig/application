@@ -2,9 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import LogoCarousel from '../components/LogoCarousel.astro';
 import Card from '../components/Card.astro';
-import CardCarousel from '../components/CardCarousel.astro';
+import type {CardType} from '../types/Card.ts'
+import Carousel from '../components/Carousel.astro';
 import TimelineEvent from '../components/TimelineEvent.astro';
 import TrainingItem from '../components/TrainingItem.astro'
+
+import {projects} from '../data/projects.ts'
+import {training} from '../data/training.ts'
+import {kindWords} from '../data/kindWords.ts'
 ---
 
 <Layout title="Creative Front-end Developer - Ste Greig">
@@ -40,7 +45,7 @@ import TrainingItem from '../components/TrainingItem.astro'
 						
 					<p>I also have vast experience in marketing, which has facilitated a well-rounded skill set; lead-gen, e-commerce, CRO, SEO, A/B testing...</p>
 						
-					<p>I wouldn't quite describe myself as full-stack, but I love JavaScript and I've loved the transition to working in modern JS frameworks over the last 6-7 years, with considerable experience in Next.js, Gatsby, Astro and Eleventy.</p>
+					<p>I wouldn't quite describe myself as full-stack, but I love JavaScript and I've loved the transition to working in modern JS frameworks over the last 6-7 years, with experience in Next.js, Gatsby, Astro and Eleventy.</p>
 						
 					<p>I'd like to think I'm the sort of person you can bet on. I'm extremely adaptable and a very fast learner, generally able to achieve a high level in whatever I turn my focus to. So if you think there are any gaps in my skill set, I'm confident these can be filled in a very short space of time.</p>
 				</div>
@@ -103,57 +108,19 @@ import TrainingItem from '../components/TrainingItem.astro'
 				</Card>
 			</div>
 
-			<CardCarousel
-				cards={[
-					{
-						'title': "Personal Site",
-						'subtitle': 'ste.digital',
-						'link': "https://ste.digital",
-						'image': "/personal-site.jpg"
-					},
-					{
-						'title': "CTC Training",
-						'subtitle': 'ctccourses.org',
-						'link': "https://ctccourses.org/",
-						'image': "/ctc.jpg"
-					},
-					{
-						'title': "Doughnotts",
-						'subtitle': 'doughnottsofficial.com',
-						'link': "https://www.doughnottsofficial.com/",
-						'image': "/doughnotts.webp"
-					},
-					{
-						'title': "Ducklings",
-						'subtitle': 'ducklingsnursery.org.uk',
-						'link': "https://www.ducklingsnursery.org.uk/",
-						'image': "/ducklings.webp"
-					},
-					{
-						'title': "Woolfox",
-						'subtitle': 'woolfox.uk',
-						'link': "https://www.woolfox.uk/",
-						'image': "/woolfox.jpg"
-					},
-					{
-						'title': "London Penthouse",
-						'subtitle': 'londonpenthouse.com',
-						'link': "https://www.londonpenthouse.com/",
-						'image': "/london-penthouse.jpg"
-					},
-					{
-						'title': "Artificial Lawn Supply",
-						'subtitle': 'artificiallawnsupply.co.uk',
-						'link': "https://www.artificiallawnsupply.co.uk/",
-						'image': "/als.jpg"
-					},
-					{
-						'title': "Moot 4x4",
-						'subtitle': 'work in progress',
-						'image': "/moot.jpg"
-					}
-				]}
-			/>
+			<Carousel classes={`pl-2 lg:px-5 xl:px-[3.25rem]`} arrows="outside">
+				{projects && (
+					projects.map((project: CardType) => (
+						<Card
+							title={project.title}
+							subtitle={project.subtitle}
+							link={project.link ? project.link : []}
+							image={project.image}
+							classes={`w-80 xl:w-1/4 p-2 lg:p-3`}
+						/>
+					))
+				)}
+			</Carousel>
 
 		</section>
 
@@ -277,115 +244,65 @@ import TrainingItem from '../components/TrainingItem.astro'
 
 			<div class="w-full max-w-[1066px] mx-auto rounded-[60px] border border-grey-300 mt-8 lg:mt-20">
 				<h3 class="w-full py-7 border-b border-grey-300 font-medium text-center">Some of my training highlights</h3>
-				<ol>
-					<TrainingItem
-						year="2022"
-						title="JavaScript Fundamentals"
-						desc="A 4 part, 6 hour course on the basics of JavaScript"
-						btns={[
-							{
-								'text': 'View slides',
-								'link': 'https://github.com/SteGreig/training-materials/blob/main/2022-brief-history-of-javascript-slides.pdf'
-							},
-							{
-								'text': 'View materials',
-								'link': 'https://github.com/SteGreig/js-training'
-							}
-						]}
-					/>
-					
-					<TrainingItem
-						year="2021"
-						title="Core Web Vitals"
-						desc="An in-depth training session and accompanying cheatsheet"
-						btns={[
-							{
-								'text': 'View slides',
-								'link': 'https://github.com/SteGreig/training-materials/blob/main/2021-core-web-vitals-training-slides.pdf'
-							},
-							{
-								'text': 'View Cheatsheet',
-								'link': 'https://github.com/SteGreig/training-materials/blob/main/2021-core-web-vitals-cheatsheet.pdf'
-							}
-						]}
-					/>
 
-					<TrainingItem
-						year="2020"
-						title="Page Speed Refresher"
-						desc="A detailed refresher on how to optimise for page speed"
-						btns={[
-							{
-								'text': 'View slides',
-								'link': 'https://github.com/SteGreig/training-materials/blob/main/2020-page-speed-training-slides.pdf'
-							}
-						]}
-					/>
+				{training && (
+					<ol>
+						{training.map(item => (
+							<TrainingItem
+								year={item.year}
+								title={item.title}
+								desc={item.desc}
+								btns={item.btns}
+							/>
+						))}
+					</ol>
+				)}
 
-					<TrainingItem
-						year="2018"
-						title="Page Speed"
-						desc="A comprehensive breakdown of front-end page speed optimisation techniques"
-						btns={[
-							{
-								'text': 'View slides',
-								'link': 'https://github.com/SteGreig/training-materials/blob/main/2018-page-speed-training.pdf'
-							}
-						]}
-					/>
-
-					<TrainingItem
-						year="2017"
-						title="CSS Selectors"
-						desc="A deep dive into CSS Selectors with accompanying cheatsheet"
-						btns={[
-							{
-								'text': 'View slides',
-								'link': 'https://github.com/SteGreig/training-materials/blob/main/2016-css-selectors-training-slides.pdf'
-							},
-							{
-								'text': 'View cheatsheet',
-								'link': 'https://github.com/SteGreig/training-materials/blob/main/2017-the-ultimate-css-selectors-cheatsheet.pdf'
-							}
-						]}
-					/>
-
-					<TrainingItem
-						year="2017"
-						title="CSS Keyframe Animation"
-						desc="Everything about CSS animation, including a custom built animation playground"
-						btns={[
-							{
-								'text': 'View slides',
-								'link': 'https://github.com/SteGreig/training-materials/blob/main/2017-css-keyframe-animation-training-slides.pdf'
-							},
-							{
-								'text': 'View playground',
-								'link': 'https://css-animation-playground.vercel.app/'
-							}
-						]}
-					/>
-
-					<TrainingItem
-						year="2015"
-						title="Flexbox"
-						desc="Live coded walkthrough and accompanying cheatsheet"
-						btns={[
-							{
-								'text': 'View cheatsheet',
-								'link': 'https://github.com/SteGreig/training-materials/blob/main/2015-flexbox-cheatsheet.pdf'
-							}
-						]}
-					/>
-				</ol>
 			</div>
 		</section>
 
-		<section class="bg-grey-100 pt-4 md:pt-8 pb-16 md:pb-20 lg:pb-32 px-2 py-16 md:py-20 lg:py-32 flex flex-wrap">
-			<div class="w-full md:w-1/4 lg:w-1/3">
-				<h2>Don't just take my word for it</h2>
-				<p>I've established a number of really great working relationships over the years, both with my managers and colleagues, as well as with freelance clients.</p>
-				<p>More references available on request.</p>
+		<section class="bg-grey-100 py-8 sm:py-12 lg:py-16 flex flex-wrap border-t border-grey-300 border-opacity-40">
+			<div class="w-full sm:w-1/2 xl:w-1/3 px-6 2xl:px-10 max-w-128 mx-auto">
+				<h2 class="heading">Don't just take my word for it</h2>
+				<p class="subheading">I've established a number of really great working relationships over the years, both with my managers and colleagues, as well as with freelance clients.</p>
+				<p class="subheading">More references available on request.</p>
+			</div>
+			<div class="testimonials w-full sm:w-1/2 xl:w-2/3 pt-6 sm:pt-0 pb-8">
+				<Carousel arrows="under-right">
+					{kindWords && (
+						kindWords.map((item) => (
+						<div class="w-[400px] p-2 lg:p-3">
+							<figure class='flex flex-col border border-grey-300 hover:border-grey-500 rounded-2xl p-6 w-full transition duration-300 testimonial'>
+								<blockquote class='relative z-10 text-grey-900'>
+									&ldquo;{item.quote}&rdquo;
+								</blockquote>
+								<figcaption class='relative z-10 mt-auto'>
+									<span class='block mt-5 font-medium'>{item.name}</span>
+									{item.position && (
+										<span class='block text-grey-700 text-sm mt-1'>{item.position}</span>
+									)}
+									{item.company && (
+										<span class='block text-grey-700 text-sm'>{item.company}</span>
+									)}
+								</figcaption>
+							</figure>
+						</div>
+						))
+					)}
+				</Carousel>
+			</div>
+		</section>
+
+		<section class="bg-black text-white min-h-screen flex flex-col sm:flex-row justify-center sm:items-center px-6 sm:px-8">
+			<div class="mb-8">
+				<p class="text-5xl sm:text-6xl lg:text-8xl xl:text-9xl w-min">Thank you.</p>
+			</div>
+			<div class="sm:flex-1 max-w-screen-md sm:ml-8 sm:pl-8 lg:pl-16 lg:ml-16 xl:pl-20 xl:ml-20 border-l border-white border-opacity-10 xl:py-16">
+				<div class="max-w-screen-xs">
+					<p class="opacity-80 mb-5">If you've made it this far, thanks so much for taking the time to read through my application. I genuinely appreciate it.</p>
+
+					<p class="opacity-80">I hope this has given you an insight into my work, my experience and my ambitions. Volteras seems like it's in a great position already, and I'd love to join your cause - if you think I'd be a good fit for your team, please reach out below.</p>
+				</div>
 			</div>
 		</section>
 		

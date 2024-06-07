@@ -1,47 +1,58 @@
 ---
-import Card from './Card.astro';
-import type {CardType} from '../types/Card.ts'
-
 export interface Props {
   title?: string;
-  cards?: any[];
+  arrows?: string;
+  classes?: string;
 }
 
-const { title, cards } = Astro.props;
+const { title, classes, arrows } = Astro.props;
 ---
 
-<div class="carousel-wrap max-w-screen-3xl mx-auto p-2 lg:px-5 xl:px-[3.25rem] relative">
+<div class={`carousel-wrap max-w-screen-3xl mx-auto relative ${classes}`}>
 
-  <div class="flex absolute 2xl:static -bottom-4 left-1/2 -translate-x-1/2 2xl:transform-none 2xl:w-full">
-    <button class="carousel-arrow carousel-arrow-left flex rounded w-6 transition duration-300 2xl:absolute 2xl:top-1/2 2xl:left-4" aria-label="Arrow left">
+  <div class={`carousel-arrows--${arrows} flex`}>
+    <button class="carousel-arrow carousel-arrow-left flex w-6 transition duration-300" aria-label="Arrow left">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M17 239L0 256l17 17L153 409l17 17L203.9 392l-17-17-95-95L488 280l24 0 0-48-24 0L91.9 232l95-95 17-17L169.9 86.1l-17 17L17 239z"/></svg>
     </button>
     
-    <button class="ml-6 carousel-arrow carousel-arrow-right flex rounded w-6 transition duration-300 2xl:absolute 2xl:top-1/2 2xl:right-4" aria-label="Arrow right">
+    <button class="carousel-arrow carousel-arrow-right flex w-6 transition duration-300 ml-6" aria-label="Arrow right">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M495 273l17-17-17-17L359 103l-17-17L308.1 120l17 17 95 95L24 232 0 232l0 48 24 0 396.1 0-95 95-17 17 33.9 33.9 17-17L495 273z"/></svg>
     </button>
   </div>
 
-  <div class="carousel-container carousel-container--draggable flex overflow-x-auto hide-scrollbars snap-mandatory snap-x py-4 transition duration-500">
+  <div class="carousel-container carousel-container--draggable flex overflow-x-auto hide-scrollbars snap-mandatory snap-x transition duration-500">
 
-    {cards?.map((card: CardType) => (
-      <div class="carousel-item snap-start flex w-[300px] xl:w-1/4 p-2 lg:p-3 flex-none">
-        
-        <Card
-					title={card.title}
-					subtitle={card.subtitle}
-					link={card.link ? card.link : []}
-					image={card.image}
-					classes={card.classes}
-				/>
-        
-      </div>
-    ))}
+    <slot />
 
   </div>
 
 </div>
 
+<style is:global>
+  .carousel-container > * {
+    @apply snap-start flex flex-none;
+  }
+
+  .carousel-arrows--outside {
+    @apply absolute 2xl:static -bottom-8 md:-bottom-10 left-1/2 -translate-x-1/2 2xl:transform-none 2xl:w-full;
+  }
+
+  .carousel-arrows--outside .carousel-arrow-left {
+    @apply 2xl:absolute 2xl:top-1/2 2xl:left-4;
+  }
+
+  .carousel-arrows--outside .carousel-arrow-right {
+    @apply 2xl:absolute 2xl:top-1/2 2xl:right-4;
+  }
+
+  .carousel-arrows--under {
+    @apply absolute -bottom-8 md:-bottom-10 left-1/2 -translate-x-1/2;
+  }
+
+  .carousel-arrows--under-right {
+    @apply absolute -bottom-8 right-0 pr-8;
+  }
+</style>
 
 <script>
 
@@ -55,7 +66,7 @@ if(carouselWraps) {
     var carouselDots = carousel.querySelectorAll(".carousel-dots button");
 
     var carouselContainer = carousel.querySelector('.carousel-container');
-    var carouselItem = carousel.querySelectorAll('.carousel-item');
+    var carouselItem = carousel.querySelectorAll('.carousel-container > *');
     var x;
 
     carouselArrows.forEach(arrow => {
