@@ -10,7 +10,7 @@ const large = variant === 'large' ? true : false;
   <div class={`w-full border border-grey-300 transition duration-300 ${large ? 'p-5 lg:p-7 rounded-2xl' : ' p-4 lg:p-5 rounded-xl'}`}>
 
     {link && image ? (
-      <a class="hover:cursor-alias" href={link}>
+      <a target="_blank" class="hover:cursor-alias" href={link}>
         {image && (
           <img class={`${large ? 'rounded-xl' : 'rounded-lg'}`} src={image} alt={title}>
         )}
@@ -25,7 +25,7 @@ const large = variant === 'large' ? true : false;
 
       <h2 class={`${large ? 'text-2xl xl:text-4xl tracking-[-1px] mb-1' : 'text-xl'}`}>
         {link ? (
-          <a class="flex items-baseline" href={link}>
+          <a target="_blank" class="flex items-baseline" href={link}>
             {title}
             <svg class="icon w-4 h-4 ml-2 opacity-0 -translate-x-2 transition duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M328 96h24v24V360v24H304V360 177.9L81 401l-17 17L30.1 384l17-17 223-223H88 64V96H88 328z"/></svg>
           </a>
@@ -43,7 +43,7 @@ const large = variant === 'large' ? true : false;
     <slot />
 
     {link && large && (
-      <a class="btn mt-4 lg:mt-5" href={link}>
+      <a target="_blank" class="btn mt-4 lg:mt-5" href={link}>
         <span>Launch</span>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M328 96h24v24V360v24H304V360 177.9L81 401l-17 17L30.1 384l17-17 223-223H88 64V96H88 328z"/></svg>
       </a>

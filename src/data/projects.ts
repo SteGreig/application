@@ -30,6 +30,12 @@ export const projects = [
     'image': "/woolfox.jpg"
   },
   {
+    'title': "Moot 4x4",
+    'subtitle': 'work in progress',
+    'link': "https://dribbble.com/shots/24258800-Car-Parts-Ecommerce-Site",
+    'image': "/moot.png"
+  },
+  {
     'title': "London Penthouse",
     'subtitle': 'londonpenthouse.com',
     'link': "https://www.londonpenthouse.com/",
@@ -40,10 +46,5 @@ export const projects = [
     'subtitle': 'artificiallawnsupply.co.uk',
     'link': "https://www.artificiallawnsupply.co.uk/",
     'image': "/als.jpg"
-  },
-  {
-    'title': "Moot 4x4",
-    'subtitle': 'work in progress',
-    'image': "/moot.jpg"
   }
 ]

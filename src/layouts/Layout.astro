@@ -30,11 +30,16 @@ const { title } = Astro.props;
 <style is:global>
 	html {
 		@apply font-sans bg-offwhite text-grey-900 antialiased;
+		scroll-behavior: smooth;
 	}
 
 	header {
 		/* mask-image: linear-gradient(to bottom, rgb(24, 23, 23) 50%, transparent); */
 		/* background: linear-gradient(to bottom, rgba(248, 247, 244, .9), transparent); */
+	}
+
+	.sticky-section ~ * {
+		@apply relative z-10;
 	}
 	
 	a {
@@ -42,7 +47,11 @@ const { title } = Astro.props;
 	}
 
 	.btn {
-		@apply transition duration-300 font-medium rounded border border-grey-300 hover:border-grey-900 focus:border-grey-900 px-3 py-2 leading-tight inline-flex items-center;
+		@apply transition duration-300 font-medium rounded border border-grey-300 hover:border-grey-900 focus:border-grey-900 px-3 py-2 leading-tight inline-flex items-center relative;
+	}
+
+	.btn--white {
+		@apply hover:border-white;
 	}
 	
 	.btn svg {
@@ -96,15 +105,22 @@ const { title } = Astro.props;
 		content: "";
 		@apply absolute border border-grey-900 w-full top-3 left-3 lg:top-6 lg:left-6 aspect-square	rounded-xl z-10;
 	}
+	
+	.content-img figcaption {
+		@apply mt-5 lg:mt-8 ml-6 lg:ml-8 text-sm text-grey-700;
+	}
 
 	.read-more-btn {
 		@apply transition duration-300 ml-1 text-grey-700 hover:text-grey-900 border-b border-grey-300 hover:border-grey-900;
 	}
 
-	body:has(.testimonial:hover) .testimonial:not(:hover) {
-    opacity: .5;
-    filter: blur(1px);
-  }
+	.tooltip {
+		@apply absolute top-full mt-3 left-1/2 -translate-x-1/2 -translate-y-4 opacity-0 pointer-events-none bg-white text-black rounded px-2 py-1 text-xs transition duration-300 whitespace-nowrap leading-tight;
+	}
+
+	.btn:hover .tooltip {
+		@apply opacity-100 translate-y-0;
+	}
 
 	.hide-scrollbars {
 		scrollbar-width: none; /* Firefox */
