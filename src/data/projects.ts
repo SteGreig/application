@@ -31,9 +31,15 @@ export const projects = [
   },
   {
     'title': "Moot 4x4",
-    'subtitle': 'work in progress',
+    'subtitle': 'Work in progress',
     'link': "https://dribbble.com/shots/24258800-Car-Parts-Ecommerce-Site",
     'image': "/moot.png"
+  },
+  {
+    'title': "Composite Prime",
+    'subtitle': 'Work in progress',
+    'link': "https://dribbble.com/shots/24258788-Composite-Products-Marketing-Website",
+    'image': "/composite-prime.png"
   },
   {
     'title': "London Penthouse",

@@ -3,7 +3,10 @@ export interface Props {
   year?: string;
   title?: string;
   desc?: string;
-  btns?: object[];
+  btns?: {
+    text: string,
+    link: string
+  }[];
 }
 
 const { year, title, desc, btns } = Astro.props;

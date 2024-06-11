@@ -1,11 +1,10 @@
 ---
 export interface Props {
-  title?: string;
   arrows?: string;
   classes?: string;
 }
 
-const { title, classes, arrows } = Astro.props;
+const { classes, arrows } = Astro.props;
 ---
 
 <div class={`carousel-wrap max-w-screen-3xl mx-auto relative ${classes}`}>
@@ -56,18 +55,18 @@ const { title, classes, arrows } = Astro.props;
 
 <script>
 
-var carouselWraps = document.querySelectorAll(".carousel-wrap");
+var carouselWraps = document.querySelectorAll(".carousel-wrap") as any as Array<HTMLElement>;
 
 if(carouselWraps) {
 
   carouselWraps.forEach((carousel) => {
 
-    var carouselArrows = carousel.querySelectorAll(".carousel-arrow");
-    var carouselDots = carousel.querySelectorAll(".carousel-dots button");
+    var carouselArrows = carousel.querySelectorAll(".carousel-arrow") as any as Array<HTMLElement>;
+    var carouselDots = carousel.querySelectorAll(".carousel-dots button") as any as Array<HTMLElement>;
 
-    var carouselContainer = carousel.querySelector('.carousel-container');
-    var carouselItem = carousel.querySelectorAll('.carousel-container > *');
-    var x;
+    var carouselContainer = carousel.querySelector('.carousel-container') as HTMLElement | null;
+    var carouselItem = carousel.querySelectorAll('.carousel-container > *') as any as Array<HTMLElement>;
+    var x: number;
 
     carouselArrows.forEach(arrow => {
       arrow.addEventListener("click", function() {
@@ -136,21 +135,21 @@ if(carouselWraps) {
 
 
 // Drag to scroll functionality
-const carousels = document.querySelectorAll(".carousel-container--draggable");
+const carousels = document.querySelectorAll(".carousel-container--draggable") as any as Array<HTMLElement>;
 
 if (carousels) {
 
   carousels.forEach((carousel) => {
-    const preventClick = (e) => {
+    const preventClick = (e: MouseEvent) => {
       e.preventDefault();
       e.stopImmediatePropagation();
     }
     let isDown = false;
     let isDragged = false;
-    let startX;
-    let scrollLeft;
+    let startX: number;
+    let scrollLeft: number;
 
-    carousel.addEventListener("mousedown", e => {
+    carousel.addEventListener("mousedown", (e: MouseEvent) => {
       isDown = true;
       carousel.classList.remove("snap-x");
       startX = e.pageX - carousel.offsetLeft;
@@ -160,7 +159,7 @@ if (carousels) {
       isDown = false;
       carousel.classList.add("snap-x");
     });
-    carousel.addEventListener("mouseup", (e) => {
+    carousel.addEventListener("mouseup", () => {
       isDown = false;
       const elements = carousel.querySelectorAll("a");
       if(isDragged){
@@ -176,7 +175,7 @@ if (carousels) {
       carousel.classList.add("snap-x");
       isDragged =  false;
     });
-    carousel.addEventListener("mousemove", e => {
+    carousel.addEventListener("mousemove", (e: MouseEvent) => {
       if (!isDown) return;
       isDragged =  true;
       e.preventDefault();

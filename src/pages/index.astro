@@ -310,7 +310,7 @@ import {kindWords} from '../data/kindWords.ts'
 					<p class="opacity-80">I hope this has given you an insight into my work, my experience and my ambitions. Volteras seems like it's in a great position already, and I'd love to join your cause - if you think I'd be a good fit for your team, please reach out below.</p>
 					
 					<div class="flex gap-4 mt-8">
-						<button class="btn btn--white copy-email" href="#thankyou">
+						<button class="btn btn--white copy-email">
 							<span class="text-sm sm:text-base">hi@ste.digital</span>
 							<svg class="brightness-0 invert" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M48 150.8l208 143 208-143V112H48v38.8zM464 209L256 352 48 209V400H464V209zM0 400V176 112 64H48 464h48v48 64V400v48H464 48 0V400z"/></svg>
 							<span class="tooltip">Click to copy</span>
@@ -357,8 +357,8 @@ import {kindWords} from '../data/kindWords.ts'
 		})
 	});
 
-	const inViewport = (entries, observer) => {
-		entries.forEach(entry => {
+	const inViewport = (entries: IntersectionObserverEntry[]) => {
+		entries.forEach((entry: IntersectionObserverEntry) => {
 			//entry.target.classList.toggle("in-viewport", entry.isIntersecting);
 			if (entry.isIntersecting) {
 					// Add class when the element is fully or partially visible
