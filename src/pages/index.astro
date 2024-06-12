@@ -17,24 +17,24 @@ import {kindWords} from '../data/kindWords.ts'
 
 		<div class="sticky-section sticky top-0">
 
-			<header class="flex items-center z-10 w-full p-3 relative">
+			<header class="flex items-center z-10 w-full p-3 absolute top-0">
 				<p class="items-center hidden sm:flex">
 					<svg class="w-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M272 208v48 85.8l78.7-212.5L138.2 208H224h48zM0 208L372.7 70 432 48l-22 59.3L272 480H224V432 304 256H176 48 0V208z"/></svg>
 					<span>Nottingham, UK</span>
 				</p>
-				<p class="mr-auto sm:mx-auto sm:text-lg font-medium">Hey, Volteras 👋</p>
+				<p class="mr-auto sm:mx-auto sm:text-lg 4xl:text-2xl font-medium">Hey, Volteras 👋</p>
 				<a class="btn" href="#thankyou">
 					<span class="text-sm sm:text-base">Get in touch</span>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M48 150.8l208 143 208-143V112H48v38.8zM464 209L256 352 48 209V400H464V209zM0 400V176 112 64H48 464h48v48 64V400v48H464 48 0V400z"/></svg>
 				</a>
 			</header>
 			
-			<section class="bg-offwhite flex flex-col items-center justify-center px-6 pt-9 pb-20 text-center">
+			<section class="min-h-screen bg-offwhite flex flex-col items-center justify-center px-6 py-20 text-center">
 				<figure class="relative after:absolute after:left-0 after:bottom-0 after:w-full after:h-1/2 after:bg-gradient-to-t after:from-offwhite">
-					<img width="220" height="221" class="mix-blend-darken" src="/ste-profile.png" alt="Ste Greig profile picture">
+					<img width="220" height="221" class="mix-blend-darken 4xl:w-80" src="/ste-profile.png" alt="Ste Greig profile picture">
 				</figure>
-				<h1 class="text-grey-900 text-5xl md:text-7xl tracking-[-1px] -mt-9 relative z-10"><span class="text-grey-500">I'm</span> Ste Greig</h1>
-				<p class="mt-[6px]">Front-end Developer <span class="mx-1 md:mx-4">/</span> Design Engineer</p>
+				<h1 class="text-grey-900 text-5xl md:text-7xl 4xl:text-8xl tracking-[-1px] -mt-9 4xl:-mt-12 relative z-10"><span class="text-grey-500">I'm</span> Ste Greig</h1>
+				<p class="mt-[6px] 4xl:text-lg">Front-end Developer <span class="mx-1 md:mx-4">/</span> Design Engineer</p>
 				<p class="mt-10 max-w-[500px] text-center">I'm a creative developer with a keen eye for design and detail. I'm a Figma veteran, a CSS obsessive, I have a kink for semantic markup, and I love working with data and building reusable components - usually in React, but I'm flexible.</p>
 				<p class="mt-14 text-grey-500">(and I'd like to work for you)</p>
 			</section>
@@ -42,16 +42,16 @@ import {kindWords} from '../data/kindWords.ts'
 		</div>
 
 		<section class="bg-grey-100 px-6 py-16 md:py-0">
-			<div class="md:flex md:items-start">
+			<div class="md:flex md:items-center">
 				<div class="w-full max-w-128 mx-auto copy md:pr-10 xl:pr-0 md:py-20 lg:py-32">
 					<h2 class="heading">What I am and what I'm not (yet)</h2>
 					<p>Front-end is a broad term in 2024. Many come via a computer science route, and others from a more creative background. My flavour of front-end is more-so the latter, but I continue to edge closer towards an ideal mix of the two.</p>
 
 					<p>I specialise in UI patterns, user experiences, interactions, accessibility, page speed, and the visual and structural aspects of web pages and apps.</p>
 						
-					<p>I also have vast experience in marketing, which has facilitated a well-rounded skill set; lead-gen, e-commerce, CRO, SEO, A/B testing...</p>
+					<p>I also have vast experience in marketing, which has facilitated a well-rounded skill set in lead-gen, e-commerce, CRO, SEO, A/B testing...</p>
 						
-					<p>I wouldn't quite describe myself as full-stack, but I love JavaScript and I've loved the transition to working in modern JS frameworks over the last 6-7 years, with experience in Next.js, Gatsby, Astro and Eleventy.</p>
+					<p>I wouldn't quite describe myself as full-stack (although I am working towards this), but I love JavaScript and I've enjoyed the transition to working in modern JS frameworks over the last 6-7 years, with experience in Next.js, Gatsby, Astro and Eleventy.</p>
 						
 					<p>I'd like to think I'm the sort of person you can bet on. I'm extremely adaptable and a very fast learner, generally able to achieve a high level in whatever I turn my focus to. So if you think there are any gaps in my skill set, I'm confident these can be filled in a very short space of time.</p>
 				</div>
@@ -74,7 +74,7 @@ import {kindWords} from '../data/kindWords.ts'
 				<p class="subheading">All of the projects below were both designed and built by me in their entirety</p>
 			</div>
 
-			<div class="flex flex-wrap max-w-screen-3xl mx-auto p-2 lg:px-4 xl:px-8 pt-8 lg:pt-16">
+			<div class="flex flex-wrap max-w-screen-4xl mx-auto p-2 lg:px-4 xl:px-8 pt-8 lg:pt-16">
 				<Card
 					variant="large"
 					title="Messi vs Ronaldo"
@@ -131,17 +131,19 @@ import {kindWords} from '../data/kindWords.ts'
 		</section>
 
 		<section class="bg-gradient-to-b from-grey-100 to-offwhite px-6 py-16 md:py-0">
-			<div class="md:flex md:items-start">
+			<div class="md:flex md:items-center">
 				<div class="w-full max-w-128 mx-auto copy md:pr-10 xl:pr-0 md:py-20 lg:py-32">
 					<h2 class="heading">I love writing about web tech too</h2>
 					<p class="subheading">I'm even a published author!</p>
-					<p>Front-end is a broad term in 2024. Many come via a computer science route, and others from a more creative background. My flavour of front-end is more-so the latter, but I continue to edge closer towards an ideal mix of the two.</p>
+					<p>During my time at Uni and early years of employment, I was a very earnest blogger, regularly posting tips, tutorials and experimental demos using all the fancy new features that came under the umbrella of "CSS3".</p>
+					
+					<p>It was this activity that caught the attention of global publishers Wiley, who approached me with an offer to write an extensive book on advanced CSS3. And after several months of very hard work and very late nights, CSS3 Pushing the Limits - totalling 384 pages - was published in late 2013.</p>
+						
+					<p>The book received favourable reviews, and despite its age would still hold some weight today due to the cutting edge nature of the material, with the likes of Grid, Flexbox, Keyframe Animation and Custom Properties covered in detail.</p>
+						
+					<p>I've also been published by Smashing Magazine, writing a chapter on the intricacies of CSS Timing Functions for their book on animation.</p>
 
-					<p>I specialise in UI patterns, user experiences, interactions, accessibility, page speed, and the visual and structural aspects of web pages and apps.</p>
-						
-					<p>I also have vast experience in marketing, which has facilitated a well-rounded skill set; lead-gen, e-commerce, CRO, SEO, A/B testing...</p>
-						
-					<p>I wouldn't quite describe myself as full-stack, but I love JavaScript and I've enjoyed the transition to working in modern JS frameworks over the last 6-7 years, with experience in Next.js, Gatsby, Astro and Eleventy.</p>
+					<p>My blogging became much less frequent in subsequent years as other work and family life took precedence, but this is something I'm looking to get back into in a big way since launching my new personal site earlier this year, as I'm a big believer that the best way to master something is to write about it.</p>
 				</div>
 				<div class="mt-8 md:mt-0 md:py-32 md:mr-auto flex justify-center items-center md:sticky md:top-0 lg:h-screen">
 					<figure class="content-img">
@@ -173,7 +175,7 @@ import {kindWords} from '../data/kindWords.ts'
 				</TimelineEvent>
 
 				<TimelineEvent year="2010" title="First proper job" highlight={true}>
-					<p>After my second year of uni I land my first Web Designer role at 19, at Nottingham marketing agency, <b>Adtrak</b>, working full time initially and part time throughout my final year of uni.</p>
+					<p>After my second year of uni I land my first <b>Web Designer</b> role at 19, at Nottingham marketing agency, <b>Adtrak</b>, working full time initially and part time throughout my final year of uni.</p>
 				</TimelineEvent>
 
 				<TimelineEvent year="2011" title="Graduate from university" margins="mt-4 lg:-mt-16" highlight={true}>
@@ -190,7 +192,7 @@ import {kindWords} from '../data/kindWords.ts'
 				</TimelineEvent>
 
 				<TimelineEvent year="2013" title="My first senior role... in New Zealand!" highlight={true}>
-					<p>My partner and I move to New Zealand for a year, where at 22 I land my first senior position at a small studio in Auckland, joining <b>Austin Digital</b> as Senior Designer & Programmer.</p>
+					<p>My partner and I move to New Zealand for a year, where at 22 I land my first senior position at a small studio in Auckland, joining <b>Austin Digital</b> as <b>Senior Designer & Programmer</b>.</p>
 				</TimelineEvent>
 
 				<TimelineEvent year="2013" title="CSS3 Pushing the Limits is published" margins="mt-4 lg:-mt-4">
@@ -198,7 +200,7 @@ import {kindWords} from '../data/kindWords.ts'
 				</TimelineEvent>
 
 				<TimelineEvent year="2014" title="Back to the UK" highlight={true}>
-					<p>Fresh from travelling the length and breadth of New Zealand, we move to South Wales where I join <b>WebBox Digital</b> as Lead UI Designer & Front-end Developer.</p>
+					<p>Fresh from travelling the length and breadth of New Zealand, we move to South Wales where I join <b>WebBox Digital</b> as <b>Lead UI Designer & Front-end Developer</b>.</p>
 				</TimelineEvent>
 
 				<TimelineEvent year="2015" title="Back to Adtrak" margins="mt-4 lg:-mt-4" highlight={true}>
