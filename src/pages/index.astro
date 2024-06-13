@@ -263,12 +263,12 @@ import {kindWords} from '../data/kindWords.ts'
 			<h3 class="text-2xl/snug mb-6">Employment History</h3>
 			<ol class="flex flex-col gap-5">
 				{employment && employment.map(item => (
-					<li key={item.jobTitle} class='flex'>
+					<li class='flex'>
 						<p class='w-32 flex-none text-grey-700'>
-							<time dateTime={item.start}>{item.start}</time>
+							<time datetime={item.start}>{item.start}</time>
 							&ndash;
 							{item.end && (
-								<time dateTime={item.end}>{item.end}</time>
+								<time datetime={item.end}>{item.end}</time>
 							)}
 						</p>
 						<div>
@@ -276,7 +276,7 @@ import {kindWords} from '../data/kindWords.ts'
 							{item.company && (
 								<div class="">
 									{item.company.map(i => (
-										<p key={i} class='text-grey-700'>{i}</p>
+										<p class='text-grey-700'>{i}</p>
 									))}
 								</div>
 							)}
