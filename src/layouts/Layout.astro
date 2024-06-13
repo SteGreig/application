@@ -139,152 +139,158 @@ const { title } = Astro.props;
 
 	/* ANIMATIONS */
 
-	.intro-section {
-		animation: scaleDown linear both;
-		animation-timeline: view();
-		animation-range: contain;
-	}
+	@media (prefers-reduced-motion: no-preference) {
 
-	.header-hey {
-		animation: 2s hey both;
-	}
-
-	@keyframes hey {
-		0% {
-			transform: scale(3) translateY(160%);
-			opacity: 0;
+		@media screen and (min-width: 1024px) {
+			.intro-section {
+				animation: scaleDown linear both;
+				animation-timeline: view();
+				animation-range: contain;
+			}
 		}
 
-		50% {
-			transform: scale(3) translateY(200%);
-			opacity: 1;
+		.header-hey {
+			animation: 2s hey both;
 		}
 
-		70% {
-			transform: scale(3) translateY(200%);
+		@keyframes hey {
+			0% {
+				transform: scale(3) translateY(160%);
+				opacity: 0;
+			}
+
+			50% {
+				transform: scale(3) translateY(200%);
+				opacity: 1;
+			}
+
+			70% {
+				transform: scale(3) translateY(200%);
+			}
 		}
-	}
 
-	h1 {
-		@apply relative;
-	}
-
-	h1:after {
-		content: "";
-		@apply absolute top-0 left-0 w-full h-[105%] bg-offwhite;
-		animation: .8s 1.8s reveal both;
-	}
-
-	h1 + .intro-subtitle {
-		animation: fadeInDown .7s 2.3s both ease-out;
-	}
-
-	.intro-profile img {
-		animation: fadeInUp .7s 2.3s both;
-	}
-
-	.header-loc,
-	.header-btn,
-	.intro-blurb {
-		animation: fadeIn 1s 2.8s both;
-	}
-
-	.intro-signoff {
-		animation: fadeInDown 1s 3.8s both ease-out;
-	}
-
-	.content-img {
-		animation: contentImg linear both;
-		animation-timeline: view();
-		animation-range: 0 50%;
-	}
-
-	.heading {
-		animation: fadeIn linear both;
-		animation-timeline: view();
-		animation-range: 0 400px;
-	}
-
-	.training-item {
-		animation: contentImg linear;
-		animation-timeline: view();
-		animation-range: 0 160px;
-	}
-
-	.thankyou {
-		animation: fadeIn linear both;
-		animation-timeline: view();
-		animation-range: 0 60%;
-	}
-
-	@keyframes fadeInDownBig {
-		from {
-			opacity: 0;
-			transform: translateY(-60px);
+		h1 {
+			@apply relative;
 		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
 
-	@keyframes fadeInDown {
-		from {
-			opacity: 0;
-			transform: translateY(-20px);
+		h1:after {
+			content: "";
+			@apply absolute top-0 left-0 w-full h-[105%] bg-offwhite;
+			animation: .8s 1.8s reveal both;
 		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
 
-	@keyframes fadeInUp {
-		from {
-			opacity: 0;
-			transform: translateY(20px);
+		h1 + .intro-subtitle {
+			animation: fadeInDown .7s 2.3s both ease-out;
 		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
 
-	@keyframes fadeIn {
-		from {
-			opacity: 0;
+		.intro-profile img {
+			animation: fadeInUp .7s 2.3s both;
 		}
-		to {
-			opacity: 1;
-		}
-	}
-	
-	@keyframes reveal {
-		to {
-			transform: translateX(100%);
-		}
-	}
 
-	@keyframes scaleDown {
-		to {
-			transform: scale(0);
+		.header-loc,
+		.header-btn,
+		.intro-blurb {
+			animation: fadeIn 1s 2.8s both;
 		}
-	}
 
-	@keyframes contentImg {
-		from {
-			opacity: 0;
-			filter: grayscale(1) blur(2px);
-			transform: scale(0.5) rotate(7deg);
+		.intro-signoff {
+			animation: fadeInDown 1s 3.8s both ease-out;
 		}
-		70% {
-			filter: grayscale(1) blur(2px);
+
+		.content-img {
+			animation: contentImg linear both;
+			animation-timeline: view();
+			animation-range: 0 50%;
 		}
-		to {
-			opacity: 1;
-			filter: grayscale(0);
-			transform: scale(1);
+
+		.heading {
+			animation: fadeIn linear both;
+			animation-timeline: view();
+			animation-range: 0 400px;
 		}
+
+		.training-item {
+			animation: contentImg linear;
+			animation-timeline: view();
+			animation-range: 0 160px;
+		}
+
+		.thankyou {
+			animation: fadeIn linear both;
+			animation-timeline: view();
+			animation-range: 0 60%;
+		}
+
+		@keyframes fadeInDownBig {
+			from {
+				opacity: 0;
+				transform: translateY(-60px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes fadeInDown {
+			from {
+				opacity: 0;
+				transform: translateY(-20px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes fadeInUp {
+			from {
+				opacity: 0;
+				transform: translateY(20px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes fadeIn {
+			from {
+				opacity: 0;
+			}
+			to {
+				opacity: 1;
+			}
+		}
+		
+		@keyframes reveal {
+			to {
+				transform: translateX(100%);
+			}
+		}
+
+		@keyframes scaleDown {
+			to {
+				transform: scale(0);
+			}
+		}
+
+		@keyframes contentImg {
+			from {
+				opacity: 0;
+				filter: grayscale(1) blur(2px);
+				transform: scale(0.5) rotate(7deg);
+			}
+			70% {
+				filter: grayscale(1) blur(2px);
+			}
+			to {
+				opacity: 1;
+				filter: grayscale(0);
+				transform: scale(1);
+			}
+		}
+
 	}
 
 </style>
