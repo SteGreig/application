@@ -43,7 +43,7 @@ const { title } = Astro.props;
 		@apply hidden sm:inline-flex;
 	}
 
-	.sticky-section ~ * {
+	.intro-section ~ * {
 		@apply relative z-10;
 	}
 	
@@ -139,6 +139,12 @@ const { title } = Astro.props;
 
 	/* ANIMATIONS */
 
+	.intro-section {
+		animation: scaleDown linear both;
+		animation-timeline: view();
+		animation-range: contain;
+	}
+
 	.header-hey {
 		animation: 2s hey both;
 	}
@@ -166,31 +172,31 @@ const { title } = Astro.props;
 	h1:after {
 		content: "";
 		@apply absolute top-0 left-0 w-full h-[105%] bg-offwhite;
-		animation: .8s 1.3s reveal both;
+		animation: .8s 1.8s reveal both;
 	}
 
 	h1 + .intro-subtitle {
-		animation: fadeInDown .7s 1.8s both ease-out;
+		animation: fadeInDown .7s 2.3s both ease-out;
 	}
 
 	.intro-profile img {
-		animation: fadeInUp .7s 1.8s both;
+		animation: fadeInUp .7s 2.3s both;
 	}
 
 	.header-loc,
 	.header-btn,
 	.intro-blurb {
-		animation: fadeIn 1s 2.4s both;
+		animation: fadeIn 1s 2.8s both;
 	}
 
 	.intro-signoff {
-		animation: fadeInDown 1s 3.5s both ease-out;
+		animation: fadeInDown 1s 3.8s both ease-out;
 	}
 
 	.content-img {
 		animation: contentImg linear both;
 		animation-timeline: view();
-		animation-range: 0 500px;
+		animation-range: 0 50%;
 	}
 
 	.heading {
@@ -256,6 +262,12 @@ const { title } = Astro.props;
 	@keyframes reveal {
 		to {
 			transform: translateX(100%);
+		}
+	}
+
+	@keyframes scaleDown {
+		to {
+			transform: scale(0);
 		}
 	}
 
