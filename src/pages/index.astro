@@ -63,7 +63,7 @@ import {kindWords} from '../data/kindWords.ts'
 				</div>
 				<div class="mt-8 md:mt-0 md:py-32 md:mr-auto flex justify-center items-center md:sticky md:top-0 lg:h-screen">
 					<figure class="content-img">
-						<img src="/family.png" alt="">
+						<img src="/family.png" alt="Ste Greig with wife Hannah and two sons, Leo (6) and Olly (2)"  width="400" height="400">
 						<figcaption>Me with my wife Hannah and two sons, Leo (6) &amp; Olly (2)</figcaption>
 					</figure>
 				</div>
@@ -153,7 +153,7 @@ import {kindWords} from '../data/kindWords.ts'
 				</div>
 				<div class="mt-8 md:mt-0 md:py-32 md:mr-auto flex justify-center items-center md:sticky md:top-0 lg:h-screen">
 					<figure class="content-img">
-						<img src="/css3-ptl.webp" alt="My book, CSS3 Pushing the Limits">
+						<img src="/css3-ptl.webp" alt="My book, CSS3 Pushing the Limits" width="400" height="400">
 						<figcaption>My book, CSS3 Pushing the Limits</figcaption>
 					</figure>
 				</div>
@@ -256,7 +256,7 @@ import {kindWords} from '../data/kindWords.ts'
 				<p class="subheading">This passion for sharing knowledge has been present from the outset, holding my first training session on CSS3 as a fresh-faced junior in 2011, back when implementing rounded corners without images was still a novelty!</p>
 			</div>
 
-			<div class="w-full max-w-[1066px] mx-auto rounded-[60px] border border-grey-300 mt-8 lg:mt-20">
+			<div class="w-full max-w-[1066px] mx-auto rounded-[60px] rounded-b-2xl lg:rounded-b-[60px] border border-grey-300 mt-8 lg:mt-20">
 				<h3 class="w-full py-7 border-b border-grey-300 font-medium text-center">Some of my training highlights</h3>
 
 				{training && (
@@ -285,7 +285,7 @@ import {kindWords} from '../data/kindWords.ts'
 				<Carousel arrows="under-right">
 					{kindWords && (
 						kindWords.map((item) => (
-						<div class="w-[400px] p-2 lg:p-3">
+						<div class="w-[350px] md:w-[400px] p-2 lg:p-3">
 							<figure class='flex flex-col border border-grey-300 hover:border-grey-900 rounded-2xl p-6 w-full transition duration-300 testimonial'>
 								<blockquote class='relative z-10 text-grey-900'>
 									&ldquo;{item.quote}&rdquo;
@@ -311,13 +311,13 @@ import {kindWords} from '../data/kindWords.ts'
 			<div class="mb-8">
 				<p class="thankyou text-5xl sm:text-6xl lg:text-8xl xl:text-9xl w-min">Thank you.</p>
 			</div>
-			<div class="sm:flex-1 max-w-screen-md sm:ml-8 sm:pl-8 lg:pl-16 lg:ml-16 xl:pl-20 xl:ml-20 border-l border-white border-opacity-10 xl:py-16">
+			<div class="sm:flex-1 max-w-screen-md sm:ml-8 sm:pl-8 lg:pl-16 lg:ml-16 xl:pl-20 xl:ml-20 sm:border-l border-white border-opacity-10 xl:py-16">
 				<div class="max-w-screen-xs">
 					<p class="opacity-80 mb-5">If you've made it this far, thanks so much for taking the time to read through my application. I genuinely appreciate it.</p>
 
 					<p class="opacity-80">I hope this has given you an insight into my work, my experience and my ambitions. Volteras seems like it's in a great position already, and I'd love to join your cause - if you think I'd be a good fit for your team, please reach out below.</p>
 					
-					<div class="flex gap-4 mt-8">
+					<div class="flex flex-col items-start md:flex-row gap-4 mt-8">
 						<button class="btn btn--white copy-email">
 							<span class="text-sm sm:text-base">hi@ste.digital</span>
 							<svg class="brightness-0 invert" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M48 150.8l208 143 208-143V112H48v38.8zM464 209L256 352 48 209V400H464V209zM0 400V176 112 64H48 464h48v48 64V400v48H464 48 0V400z"/></svg>
