@@ -43,7 +43,7 @@ const { title } = Astro.props;
 		@apply hidden sm:inline-flex;
 	}
 
-	.intro-section ~ * {
+	.intro-section ~ *:not(.modal) {
 		@apply relative z-10;
 	}
 	
@@ -134,7 +134,6 @@ const { title } = Astro.props;
 	.hide-scrollbars::-webkit-scrollbar { /* WebKit */
 		@apply hidden;
 	}
-
 
 
 	/* ANIMATIONS */

@@ -6,8 +6,10 @@ import type {CardType} from '../types/Card.ts'
 import Carousel from '../components/Carousel.astro';
 import TimelineEvent from '../components/TimelineEvent.astro';
 import TrainingItem from '../components/TrainingItem.astro'
+import Modal from '../components/Modal.astro'
 
 import {projects} from '../data/projects.ts'
+import {employment} from '../data/employment.ts'
 import {training} from '../data/training.ts'
 import {kindWords} from '../data/kindWords.ts'
 ---
@@ -141,7 +143,7 @@ import {kindWords} from '../data/kindWords.ts'
 				<div class="w-full max-w-128 mx-auto copy md:pr-10 xl:pr-0 md:py-20 lg:py-32">
 					<h2 class="heading">I love writing about web tech too</h2>
 					<p class="subheading">I'm even a published author!</p>
-					<p>During my time at Uni and early years of employment, I was a very earnest blogger, regularly posting tips, tutorials and experimental demos using all the fancy new features that came under the umbrella of "CSS3".</p>
+					<p>During my time at Uni and my early years of employment, I was a very earnest blogger, regularly posting tips, tutorials and experimental demos using all the fancy new features that came under the umbrella of "CSS3".</p>
 					
 					<p>It was this activity that caught the attention of global publishers Wiley, who approached me with an offer to write an extensive book on advanced CSS3. And after several months of very hard work and very late nights, CSS3 Pushing the Limits - totalling 384 pages - was published in late 2013.</p>
 						
@@ -182,6 +184,10 @@ import {kindWords} from '../data/kindWords.ts'
 
 				<TimelineEvent year="2010" title="First proper job" highlight={true}>
 					<p>After my second year of uni I land my first <b>Web Designer</b> role at 19, at Nottingham marketing agency, <b>Adtrak</b>, working full time initially and part time throughout my final year of uni.</p>
+					<button data-modal-target="employment" class="btn text-grey-900 mt-4 text-sm">
+						<span>Full Employment History</span>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M295 183l-17 17L312 233.9l17-17 135-135V168v24h48V168 24 0H488 344 320V48h24 86.1L295 183zM217 329l17-17L200 278.1l-17 17L48 430.1V344 320H0v24V488v24H24 168h24V464H168 81.9L217 329z"/></svg>
+					</button>
 				</TimelineEvent>
 
 				<TimelineEvent year="2011" title="Graduate from university" margins="mt-4 lg:-mt-16" highlight={true}>
@@ -190,7 +196,7 @@ import {kindWords} from '../data/kindWords.ts'
 
 				<TimelineEvent
 					year="2012"
-					title="Launch messivsronaldo.net"
+					title="I launch messivsronaldo.net"
 				/>
 
 				<TimelineEvent year="2012" title="Land a book deal" margins="mt-4 lg:mt-0">
@@ -211,6 +217,10 @@ import {kindWords} from '../data/kindWords.ts'
 
 				<TimelineEvent year="2015" title="Back to Adtrak" margins="mt-4 lg:-mt-4" highlight={true}>
 					<p>After moving back to Nottingham in 2015, I accept the offer of a senior role at my former employer, <b>Adtrak</b>!</p>
+					<button data-modal-target="adtrak-role" class="btn text-grey-900 mt-4 text-sm">
+						<span>My role at Adtrak</span>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M295 183l-17 17L312 233.9l17-17 135-135V168v24h48V168 24 0H488 344 320V48h24 86.1L295 183zM217 329l17-17L200 278.1l-17 17L48 430.1V344 320H0v24V488v24H24 168h24V464H168 81.9L217 329z"/></svg>
+					</button>
 				</TimelineEvent>
 
 				<TimelineEvent
@@ -219,7 +229,7 @@ import {kindWords} from '../data/kindWords.ts'
 					margins="mt-4 lg:mt-24"
 				/>
 
-				<TimelineEvent year="2016" title="Sell messivsronaldo.net" margins="mt-4 lg:mt-0">
+				<TimelineEvent year="2016" title="Sell messivsronaldo.net" margins="mt-4 lg:mt-8">
 					<p>In 2016, 4 years after launching, I sell my messivsronaldo.net website for a five-figure sum.</p>
 				</TimelineEvent>
 
@@ -229,7 +239,7 @@ import {kindWords} from '../data/kindWords.ts'
 					margins="mt-4 lg:mt-24"
 				/>
 
-				<TimelineEvent year="2018-19" title="Upskilling" margins="mt-4 lg:-mt-4">
+				<TimelineEvent year="2018-19" title="Upskilling" margins="mt-4 lg:mt-4">
 					<p>I went big on learning React, Gatsby, ES6 and other more modern web tech.</p>
 				</TimelineEvent>
 
@@ -248,6 +258,46 @@ import {kindWords} from '../data/kindWords.ts'
 				</TimelineEvent>
 			</ol>
 		</section>
+
+		<Modal id="employment">
+			<h3 class="text-2xl/snug mb-6">Employment History</h3>
+			<ol class="flex flex-col gap-5">
+				{employment && employment.map(item => (
+					<li key={item.jobTitle} class='flex'>
+						<p class='w-32 flex-none text-grey-700'>
+							<time dateTime={item.start}>{item.start}</time>
+							&ndash;
+							{item.end && (
+								<time dateTime={item.end}>{item.end}</time>
+							)}
+						</p>
+						<div>
+							<p class='text-lg'>{item.jobTitle}</p>
+							{item.company && (
+								<div class="">
+									{item.company.map(i => (
+										<p key={i} class='text-grey-700'>{i}</p>
+									))}
+								</div>
+							)}
+						</div>
+					</li>
+				))}
+			</ol>
+		</Modal>
+
+		<Modal id="adtrak-role">
+			<h3 class="text-2xl/snug mb-6">My Role at Adtrak</h3>
+			<p>My long term <strong>Senior Web Designer</strong> role at Adtrak can be best summarised in modern terms as a Design Engineer role, regularly both designing and building full websites and tools for a vast array of clients in a varied range of industries.</p>
+			
+			<p>My primary focus has been front-end development, with a real speciality in UI engineering, implementing designs with meticulous care and precision.</p>
+
+			<p>I've worn many other hats in this role too, making me extremely comfortable managing my own projects from start to finish, and communicating with clients and other stakeholders.</p>
+				
+			<p>The role has also contributed to my extensive all-round web knowledge, thanks to working closely with experienced marketers to ensure the ongoing success of our products. I subsequently have a wealth of knowledge in areas such as SEO, CRO, A/B testing, and page speed, affording me the kind of marketing know-how that only really comes with experience.</p>
+				
+			<p>Further still, I've been heavily involved in training and upskilling the 20+ strong web team throughout my time at Adtrak, which I expand on more later in this application.</p>
+		</Modal>
 
 		<section class="bg-gradient-to-b from-offwhite via-grey-100 to-grey-100 pt-4 md:pt-8 pb-16 md:pb-20 lg:pb-32 px-2">
 			<div class="max-w-screen-md mx-auto text-center px-4">

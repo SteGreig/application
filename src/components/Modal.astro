@@ -1,0 +1,82 @@
+---
+export interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+
+---
+
+<div data-modal={id} class="modal fixed top-0 left-0 w-full h-full bg-black bg-opacity-60 z-50 flex duration-300 transition invisible opacity-0">
+
+  <div class="modal-content relative w-[90%] h-[90%] md:max-h-[600px] md:h-[80%] max-w-screen-md m-auto rounded-xl bg-white">
+
+    <div class="h-full overflow-y-auto copy p-6 md:p-8">
+      <slot />
+    </div>
+
+    <button data-modal-close aria-label="Close" class="absolute top-4 right-4 w-9 h-9 border border-grey-500 hover:border-grey-900 transition duration-300 rounded-full p-2">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M52.2 50.2l-17-17L1.3 67.2l17 17L190.1 256 18.2 427.8l-17 17 33.9 33.9 17-17L224 289.9 395.8 461.8l17 17 33.9-33.9-17-17L257.9 256 429.8 84.2l17-17L412.8 33.3l-17 17L224 222.1 52.2 50.2z"/></svg>
+    </button>
+  </div>
+
+</div>
+
+<script>
+
+  // Select all modal trigger buttons, modals, modal close buttons, and body
+  const modalTriggers = document.querySelectorAll('[data-modal-target]')
+  const modals = document.querySelectorAll("[data-modal]");
+  const modalCloseBtns = document.querySelectorAll("[data-modal-close]");
+
+  // Modal Active / Non-active Classes
+  const modalActiveClasses = ["visible","opacity-100"];
+  const modalNonActiveClasses = ["invisible","opacity-0"];
+
+
+  // Launch corresponding modal when modal trigger is clicked
+  modalTriggers.forEach(el => {
+    el.addEventListener("click", function(e) {
+      
+      // Get the data-modal-target attr value from modal trigger so we can target corresponding modal
+      const target = this.getAttribute('data-modal-target');
+      const modal = document.querySelector(`[data-modal="${target}"]`);
+
+      // Add/remove the necessary classes to launch the modal
+      modal.classList.add(...modalActiveClasses);
+      modal.classList.remove(...modalNonActiveClasses);
+    });
+  });
+
+
+  // Close modal function (remove/add necessary classes)
+  function closeModal() {
+    modals.forEach(el => {
+      el.classList.remove(...modalActiveClasses);
+      el.classList.add(...modalNonActiveClasses);
+    });
+  }
+
+  // When any modal close button is clicked, run the closeModal function
+  modalCloseBtns.forEach(el => {
+    el.addEventListener('click', closeModal)
+  });
+
+  // When the escape key is pressed, run the closeModal function
+  window.addEventListener("keydown", function (e) {
+    if (e.code === "Escape") {
+      closeModal();
+    }
+  });
+
+  // When the modal backdrop area is clicked, run the closeModal function
+  modals.forEach(el => {
+    el.addEventListener("click", function (e) {
+      const isOutside = !e.target.closest(".modal-content");
+      if (isOutside) {
+        closeModal();
+      }
+    });
+  })
+
+</script>

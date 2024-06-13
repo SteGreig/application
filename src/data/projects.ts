@@ -6,10 +6,10 @@ export const projects = [
     'image': "/personal-site.jpg"
   },
   {
-    'title': "CTC Training",
-    'subtitle': 'ctccourses.org',
-    'link': "https://ctccourses.org/",
-    'image': "/ctc.jpg"
+    'title': "Ducklings",
+    'subtitle': 'ducklingsnursery.org.uk',
+    'link': "https://www.ducklingsnursery.org.uk/",
+    'image': "/ducklings.webp"
   },
   {
     'title': "Doughnotts",
@@ -18,10 +18,10 @@ export const projects = [
     'image': "/doughnotts.webp"
   },
   {
-    'title': "Ducklings",
-    'subtitle': 'ducklingsnursery.org.uk',
-    'link': "https://www.ducklingsnursery.org.uk/",
-    'image': "/ducklings.webp"
+    'title': "Moot 4x4",
+    'subtitle': 'Work in progress',
+    'link': "https://dribbble.com/shots/24258800-Car-Parts-Ecommerce-Site",
+    'image': "/moot.png"
   },
   {
     'title': "Woolfox",
@@ -30,16 +30,16 @@ export const projects = [
     'image': "/woolfox.jpg"
   },
   {
-    'title': "Moot 4x4",
-    'subtitle': 'Work in progress',
-    'link': "https://dribbble.com/shots/24258800-Car-Parts-Ecommerce-Site",
-    'image': "/moot.png"
-  },
-  {
     'title': "Composite Prime",
     'subtitle': 'Work in progress',
     'link': "https://dribbble.com/shots/24258788-Composite-Products-Marketing-Website",
     'image': "/composite-prime.png"
+  },
+  {
+    'title': "CTC Training",
+    'subtitle': 'ctccourses.org',
+    'link': "https://ctccourses.org/",
+    'image': "/ctc.jpg"
   },
   {
     'title': "London Penthouse",
