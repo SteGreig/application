@@ -17,7 +17,7 @@ import {kindWords} from '../data/kindWords.ts'
 <Layout title="Creative Front-end Developer - Ste Greig">
 	<main>
 
-		<div class="intro-section sticky top-0 overflow-hidden">
+		<div class="intro-section lg:sticky top-0 overflow-hidden">
 
 			<header class="flex items-center z-10 w-full p-3 absolute top-0">
 				<p class="header-loc items-center hidden sm:flex">
@@ -49,7 +49,9 @@ import {kindWords} from '../data/kindWords.ts'
 
 		</div>
 
-		<section class=" content-section bg-grey-100 px-6 py-16 md:py-0">
+		<div class="intro-section-pixel w-px h-px opacity-0 absolute top-0 left-0"></div>
+
+		<section class="content-section bg-grey-100 px-6 py-16 md:py-0">
 			<div class="md:flex md:items-center">
 				<div class="w-full max-w-128 mx-auto copy md:pr-10 xl:pr-0 md:py-20 lg:py-32">
 					<h2 class="heading">What I am and what I'm not (yet)</h2>
@@ -65,7 +67,7 @@ import {kindWords} from '../data/kindWords.ts'
 				</div>
 				<div class="mt-8 md:mt-0 md:py-32 md:mr-auto flex justify-center items-center md:sticky md:top-0 lg:h-screen">
 					<figure class="content-img">
-						<img src="/family.png" alt="Ste Greig with wife Hannah and two sons, Leo (6) and Olly (2)"  width="400" height="400">
+						<img src="/family.png" alt="Ste Greig with wife Hannah and two sons, Leo (6) and Olly (2)"  width="450" height="450">
 						<figcaption>Me with my wife Hannah and two sons, Leo (6) &amp; Olly (2)</figcaption>
 					</figure>
 				</div>
@@ -155,7 +157,7 @@ import {kindWords} from '../data/kindWords.ts'
 				</div>
 				<div class="mt-8 md:mt-0 md:py-32 md:mr-auto flex justify-center items-center md:sticky md:top-0 lg:h-screen">
 					<figure class="content-img">
-						<img src="/css3-ptl.webp" alt="My book, CSS3 Pushing the Limits" width="400" height="400">
+						<img src="/css3-ptl.webp" alt="My book, CSS3 Pushing the Limits" width="450" height="450">
 						<figcaption>My book, CSS3 Pushing the Limits</figcaption>
 					</figure>
 				</div>
@@ -419,8 +421,12 @@ import {kindWords} from '../data/kindWords.ts'
 		entries.forEach((entry: IntersectionObserverEntry) => {
 			//entry.target.classList.toggle("in-viewport", entry.isIntersecting);
 			if (entry.isIntersecting) {
-					// Add class when the element is fully or partially visible
-					entry.target.classList.add('in-viewport');
+				// Add class when the element is fully or partially visible
+				entry.target.classList.add('in-viewport');
+			} else {
+				if (entry.target.classList.contains('intro-section-pixel')) {
+					entry.target.classList.remove('in-viewport');
+				}
 			}
 		});
 	};
@@ -434,6 +440,18 @@ import {kindWords} from '../data/kindWords.ts'
 	document.querySelectorAll('[data-inviewport]').forEach(el => {
 		Obs.observe(el);
 	});
+
+
+	const introSection = document.querySelector('.intro-section');
+	var observer = new IntersectionObserver((entries) => {
+    if (entries[0].boundingClientRect.y < 0) {
+      introSection.classList.add("invisible");
+    } else {
+      introSection.classList.remove("invisible");
+    }
+  });
+  observer.observe(document.querySelector(".intro-section-pixel"));
+
 
 	const copyEmailBtn = document.querySelector('.copy-email');
 

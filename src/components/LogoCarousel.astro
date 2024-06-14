@@ -55,21 +55,21 @@ const logos = [
 ]
 ---
 
-<div class="carousel-wrap relative flex w-full overflow-hidden">
+<div class="logo-carousel-wrap relative flex w-full overflow-hidden py-10 -my-10">
 
-  <div class="carousel flex flex-none will-change-transform">
+  <div class="logo-carousel flex flex-none will-change-transform">
     {logos.map(logo => (
       <img class="mx-6" src={logo.filename} alt={logo.alt}>
     ))}
   </div>
 
-  <div class="carousel flex flex-none will-change-transform" aria-hidden="true">
+  <div class="logo-carousel flex flex-none will-change-transform" aria-hidden="true">
     {logos.map(logo => (
       <img class="mx-6" src={logo.filename} alt={logo.alt}>
     ))}
   </div>
 
-  <div class="carousel flex flex-none will-change-transform" aria-hidden="true">
+  <div class="logo-carousel flex flex-none will-change-transform" aria-hidden="true">
     {logos.map(logo => (
       <img class="mx-6" src={logo.filename} alt={logo.alt}>
     ))}
@@ -79,19 +79,19 @@ const logos = [
 
 
 <style>
-.carousel-wrap:before {
+.logo-carousel-wrap:before {
   content: "";
   @apply absolute left-0 -top-4 -bottom-4 w-52 bg-gradient-to-r from-offwhite z-10 backdrop-blur-lg backdrop-opacity-70;
   mask-image: linear-gradient(to right, rgb(24, 23, 23) 50%, transparent);
 }
 
-.carousel-wrap::after {
+.logo-carousel-wrap::after {
   content: "";
   @apply absolute right-0 -top-4 -bottom-4 w-52 bg-gradient-to-l from-offwhite z-10 backdrop-blur-lg backdrop-opacity-70;
   mask-image: linear-gradient(to left, rgb(24, 23, 23) 50%, transparent);
 }
 
-.carousel {
+.logo-carousel {
   animation: marquee 21s infinite linear;
 }
 
