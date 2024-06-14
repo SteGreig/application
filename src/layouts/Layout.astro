@@ -93,6 +93,10 @@ const { title } = Astro.props;
 		@apply mt-5;
 	}
 
+	.copy a:not(.btn) {
+		@apply font-medium underline decoration-grey-300 hover:decoration-grey-900;
+	}
+
 	strong,
 	b {
 		@apply font-medium text-grey-900;

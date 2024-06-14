@@ -12,9 +12,26 @@ import {projects} from '../data/projects.ts'
 import {employment} from '../data/employment.ts'
 import {training} from '../data/training.ts'
 import {kindWords} from '../data/kindWords.ts'
+import {comps} from '../data/comps.ts'
+
+export async function getStaticPaths() {
+
+  const pages = [
+    ...comps
+  ];
+
+  return pages.map(({ slug, company, signoff, role }) => {
+    return {
+      params: { slug },
+      props: { slug, company, signoff, role },
+    };
+  });
+}
+
+const { slug, company, signoff, role } = Astro.props;
 ---
 
-<Layout title="Creative Front-end Developer - Ste Greig">
+<Layout title=`${company} ${role} Appliction - Ste Greig`>
 	<main>
 
 		<div class="intro-section lg:sticky top-0 overflow-hidden">
@@ -24,7 +41,7 @@ import {kindWords} from '../data/kindWords.ts'
 					<svg class="w-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M272 208v48 85.8l78.7-212.5L138.2 208H224h48zM0 208L372.7 70 432 48l-22 59.3L272 480H224V432 304 256H176 48 0V208z"/></svg>
 					<span>Nottingham, UK</span>
 				</p>
-				<p class="header-hey mx-auto sm:text-lg 4xl:text-2xl font-medium">Hey, Volteras 👋</p>
+				<p class="header-hey mx-auto sm:text-lg 4xl:text-2xl font-medium">Hey, {company} 👋</p>
 				<a class="btn header-btn" href="#thankyou">
 					<span class="text-sm sm:text-base">Get in touch</span>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M48 150.8l208 143 208-143V112H48v38.8zM464 209L256 352 48 209V400H464V209zM0 400V176 112 64H48 464h48v48 64V400v48H464 48 0V400z"/></svg>
@@ -63,12 +80,12 @@ import {kindWords} from '../data/kindWords.ts'
 						
 					<p>I wouldn't quite describe myself as full-stack, but it's something I am working towards. I also love JavaScript and I've enjoyed the transition to working in modern JS frameworks over the last 6 years or so, with experience in Next.js, Gatsby, Astro and Eleventy.</p>
 						
-					<p>I'd like to think I'm the sort of person you can bet on. I'm extremely adaptable and a very fast learner, generally able to achieve a high level in whatever I turn my focus to. So if you think there are any gaps in my skill set, I'm confident these can be filled in a very short space of time.</p>
+					<p>I'd like to think I'm the sort of person you can bet on. I'm extremely adaptable and a very fast learner, generally able to achieve a high level in whatever I turn my focus to. So if you think there are any gaps in my skill set, I'm confident these can be quickly filled.</p>
 				</div>
 				<div class="mt-8 md:mt-0 md:py-32 md:mr-auto flex justify-center items-center md:sticky md:top-0 lg:h-screen">
 					<figure class="content-img">
 						<img src="/family.png" alt="Ste Greig with wife Hannah and two sons, Leo (6) and Olly (2)"  width="450" height="450">
-						<figcaption>Me with my wife Hannah and two sons, Leo (6) &amp; Olly (2)</figcaption>
+						<figcaption>Me family; wife, Hannah and two sons, Leo (6) &amp; Olly (2)</figcaption>
 					</figure>
 				</div>
 			</div>
@@ -96,13 +113,11 @@ import {kindWords} from '../data/kindWords.ts'
 					<p>The sequel to my original side-project which I sold for a five-figure sum, messivsronaldo.app began as a learning exercise and developed into a real passion project. <button class="read-more-btn">Read more</button></p>
 
 					<div class="[&>*]:mt-4 hidden read-more-content">
-						<p>Built with Gatsby, this site was my gateway into React, and I can't understate how much I learnt during both the initial build and the never-ending feature additions. It was a constant work in progress for the best part of 2 years, and it was fantastic to have a project that really energised me in the way that this did.</p>
+						<p>Built with Gatsby, this site was my gateway into React, and I can't understate how much I learnt during both the initial build and the never-ending feature additions. It combined my love of sports, statistics, and development to form a very energising side-hustle that was immeasurably beneficial to my personal development.</p>
 							
 						<p>The original iteration of this side-project which I previously alluded to (messivsronaldo.net), I created in 2012 and sold in 2016 with an average daily user count of around 15,000, and a firm grip of the top spots in Google for the most relevant search terms.</p>
 							
-						<p>This new version was initially a learning exercise primarily, but soon began to show some promise in terms of organic performance. In a little over a year it had toppled its predecessor, and went on to achieve some dizzying numbers, despite zero financial investment on marketing.</p>
-							
-						<p>In the year from October 2022 to September 2023, the site had 11.7 million users, an average of 32,000 per day. It has also surpassed 100k users in a single day on 8 occasions, including twice breaking the 200k barrier! The all time high was 226,323 on Monday 19th December 2022, the day after Lionel Messi's World Cup triumph.</p>
+						<p>In a little over a year, this new version had toppled its predecessor, and went on to achieve some dizzying numbers, pulling in 12 million users in a single year despite zero financial investment on marketing.</p>
 					</div>
 				</Card>
 
@@ -114,10 +129,12 @@ import {kindWords} from '../data/kindWords.ts'
 					image="/top-scorers-club.webp"
 					classes="w-full md:w-1/2 p-2 lg:p-4 xl:p-8"
 				>
-				<p>Top Scorers Club is another recently launched side project with a simple purpose; an at-a-glance, quick-reference resource showing the top scorers and assisters in football's biggest competitions. <button class="read-more-btn">Read more</button></p>
+				<p>Built in Astro, Top Scorers Club is another recently launched side project based around sports data, with a simple purpose. <button class="read-more-btn">Read more</button></p>
 
 				<div class="[&>*]:mt-4 hidden read-more-content">
-					<p>The site was built with Astro, and I have to say it was an immensely enjoyable build, with the Astro developer experience probably my overall favourite at the moment.</p>
+          <p>The site is an at-a-glance, quick-reference resource showing the top scorers and assisters in football's biggest competitions.</p>
+
+					<p>It was an immensely enjoyable build, with the Astro developer experience probably my overall favourite at the moment.</p>
 						
 					<p>Without going into too much detail about the data side, the site makes creative use of the Google Sheets API, auto-updates and costs nothing to run.</p>
 				</div>
@@ -143,8 +160,7 @@ import {kindWords} from '../data/kindWords.ts'
 		<section class="bg-gradient-to-b from-grey-100 to-offwhite px-6 py-16 md:py-0">
 			<div class="md:flex md:items-center">
 				<div class="w-full max-w-128 mx-auto copy md:pr-10 xl:pr-0 md:py-20 lg:py-32">
-					<h2 class="heading">I love writing about web tech too</h2>
-					<p class="subheading">I'm even a published author!</p>
+					<h2 class="heading">I love writing about the web, too</h2>
 					<p>During my time at Uni and my early years of employment, I was a very earnest blogger, regularly posting tips, tutorials and experimental demos using all the fancy new features that came under the umbrella of "CSS3".</p>
 					
 					<p>It was this activity that caught the attention of global publishers Wiley, who approached me with an offer to write an extensive book on advanced CSS3. And after several months of very hard work and very late nights, CSS3 Pushing the Limits - totalling 384 pages - was published in late 2013.</p>
@@ -153,7 +169,7 @@ import {kindWords} from '../data/kindWords.ts'
 						
 					<p>I've also been published by Smashing Magazine, writing a chapter on the intricacies of CSS Timing Functions for their book on animation.</p>
 
-					<p>My blogging became much less frequent in subsequent years as other work and family life took precedence, but this is something I'm looking to get back into in a big way since launching my new personal site earlier this year, as I'm a big believer that the best way to master something is to write about it.</p>
+					<p>My blogging became much less frequent in subsequent years as other work and family life took precedence, but this is something I'm looking to get back into in a big way since launching my new <a target="_blank" href="https://ste.digital/">personal site</a> earlier this year, as I'm a big believer that the best way to master something is to write about it.</p>
 				</div>
 				<div class="mt-8 md:mt-0 md:py-32 md:mr-auto flex justify-center items-center md:sticky md:top-0 lg:h-screen">
 					<figure class="content-img">
@@ -184,7 +200,7 @@ import {kindWords} from '../data/kindWords.ts'
 					<p>I leave Ashfield School & Sixth Form with 9 GCSEs (including As in Maths English & Art), and 3 A-Levels (including an A in ICT). I then head to Nottingham Trent University to study Multimedia.</p>
 				</TimelineEvent>
 
-				<TimelineEvent year="2010" title="First proper job" highlight={true}>
+				<TimelineEvent year="2010" title="First proper job" highlight={true} label="employment">
 					<p>After my second year of uni I land my first <b>Web Designer</b> role at 19, at Nottingham marketing agency, <b>Adtrak</b>, working full time initially and part time throughout my final year of uni.</p>
 					<button data-modal-target="employment" class="btn text-grey-900 mt-4 text-sm">
 						<span>Full Employment History</span>
@@ -205,19 +221,23 @@ import {kindWords} from '../data/kindWords.ts'
 					<p>After blogging incessantly about CSS for the previous few years I am approached by global publishers Wiley, who commission me to write an extensive book on advanced CSS.</p>
 				</TimelineEvent>
 
-				<TimelineEvent year="2013" title="My first senior role... in New Zealand!" highlight={true}>
+				<TimelineEvent year="2013" title="First senior role... in New Zealand!" highlight={true} label="employment">
 					<p>My partner and I move to New Zealand for a year, where at 22 I land my first senior position at a small studio in Auckland, joining <b>Austin Digital</b> as <b>Senior Designer & Programmer</b>.</p>
+          <button data-modal-target="austin-digital" class="btn text-grey-900 mt-4 text-sm">
+						<span>My role at Austin Digital</span>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M295 183l-17 17L312 233.9l17-17 135-135V168v24h48V168 24 0H488 344 320V48h24 86.1L295 183zM217 329l17-17L200 278.1l-17 17L48 430.1V344 320H0v24V488v24H24 168h24V464H168 81.9L217 329z"/></svg>
+					</button>
 				</TimelineEvent>
 
 				<TimelineEvent year="2013" title="CSS3 Pushing the Limits is published" margins="mt-4 lg:-mt-4">
 					<p>In September 2023, after months of very hard work and very late nights, my book on the cutting edge CSS3 modules - totalling 384 pages - was published.</p>
 				</TimelineEvent>
 
-				<TimelineEvent year="2014" title="Back to the UK" highlight={true}>
+				<TimelineEvent year="2014" title="Back to the UK" highlight={true} label="employment">
 					<p>Fresh from travelling the length and breadth of New Zealand, we move to South Wales where I join <b>WebBox Digital</b> as <b>Lead UI Designer & Front-end Developer</b>.</p>
 				</TimelineEvent>
 
-				<TimelineEvent year="2015" title="Back to Adtrak" margins="mt-4 lg:-mt-4" highlight={true}>
+				<TimelineEvent year="2015" title="Back to Adtrak" margins="mt-4 lg:-mt-4" highlight={true} label="employment">
 					<p>After moving back to Nottingham in 2015, I accept the offer of a senior role at my former employer, <b>Adtrak</b>!</p>
 					<button data-modal-target="adtrak-role" class="btn text-grey-900 mt-4 text-sm">
 						<span>My role at Adtrak</span>
@@ -262,7 +282,7 @@ import {kindWords} from '../data/kindWords.ts'
 		</section>
 
 		<Modal id="employment">
-			<h3 class="text-2xl/snug mb-6">Employment History</h3>
+			<h3 class="text-2xl/snug mb-5 font-medium">Employment History</h3>
 			<ol class="flex flex-col gap-5">
 				{employment && employment.map(item => (
 					<li class='flex'>
@@ -289,7 +309,7 @@ import {kindWords} from '../data/kindWords.ts'
 		</Modal>
 
 		<Modal id="adtrak-role">
-			<h3 class="text-2xl/snug mb-6">My Role at Adtrak</h3>
+			<h3 class="text-2xl/snug mb-5 font-medium">My Role at Adtrak</h3>
 			<p>My long term <strong>Senior Web Designer</strong> role at Adtrak can be best summarised in modern terms as a Design Engineer role, regularly both designing and building full websites and tools for a vast array of clients in a varied range of industries.</p>
 			
 			<p>My primary focus has been front-end development, with a real speciality in UI engineering, implementing designs with meticulous care and precision.</p>
@@ -299,6 +319,13 @@ import {kindWords} from '../data/kindWords.ts'
 			<p>The role has also contributed to my extensive all-round web knowledge, thanks to working closely with experienced marketers to ensure the ongoing success of our products. I subsequently have a wealth of knowledge in areas such as SEO, CRO, A/B testing, and page speed, affording me the kind of marketing know-how that only really comes with experience.</p>
 				
 			<p>Further still, I've been heavily involved in training and upskilling the 20+ strong web team throughout my time at Adtrak, which I expand on more later in this application.</p>
+		</Modal>
+
+    <Modal id="austin-digital">
+			<h3 class="text-2xl/snug mb-5 font-medium">My Role at Austin Digital</h3>
+			<p>This was my first senior position, which I landed during my year spent in New Zealand. It was an extremely productive 10 months, in which I completely transformed the practices of a small web design studio to more modern standards. I was in charge of overseeing a small team of designers and developers, who I helped transition from WYSIWYG style builds to custom built WordPress sites.</p>
+
+      <p>Although a short tenure, I'm extremely proud of the impact I made on the fortunes of a small business in such a short space of time.</p>
 		</Modal>
 
 		<section class="bg-gradient-to-b from-offwhite via-grey-100 to-grey-100 pt-4 md:pt-8 pb-16 md:pb-20 lg:pb-32 px-2">
@@ -367,7 +394,7 @@ import {kindWords} from '../data/kindWords.ts'
 				<div class="max-w-screen-xs">
 					<p class="opacity-80 mb-5">If you've made it this far, thanks so much for taking the time to read through my application. I genuinely appreciate it.</p>
 
-					<p class="opacity-80">I hope this has given you an insight into my work, my experience and my ambitions. Volteras seems like it's in a great position already, and I'd love to join your cause - if you think I'd be a good fit for your team, please reach out below.</p>
+					<p class="opacity-80">I hope this has given you an insight into my work, my experience and my ambitions. {signoff}</p>
 					
 					<div class="flex flex-col items-start md:flex-row gap-4 mt-8">
 						<button class="btn btn--white copy-email">
