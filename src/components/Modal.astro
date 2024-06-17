@@ -7,7 +7,7 @@ const { id } = Astro.props;
 
 ---
 
-<div data-modal={id} class="modal fixed top-0 left-0 w-full h-full bg-black bg-opacity-60 z-50 flex duration-300 transition invisible opacity-0">
+<div data-modal={id} class="modal fixed top-0 left-0 w-full h-full bg-black bg-opacity-60 z-50 flex duration-300 transition invisible opacity-0 backdrop-blur-[2px]">
 
   <div class="modal-content relative w-[90%] h-[90%] md:max-h-[600px] md:h-[80%] max-w-screen-md m-auto rounded-xl bg-white">
 
@@ -45,6 +45,8 @@ const { id } = Astro.props;
       // Add/remove the necessary classes to launch the modal
       modal.classList.add(...modalActiveClasses);
       modal.classList.remove(...modalNonActiveClasses);
+
+      document.querySelector('body').classList.add('overflow-hidden');
     });
   });
 
@@ -55,6 +57,7 @@ const { id } = Astro.props;
       el.classList.remove(...modalActiveClasses);
       el.classList.add(...modalNonActiveClasses);
     });
+    document.querySelector('body').classList.remove('overflow-hidden');
   }
 
   // When any modal close button is clicked, run the closeModal function
