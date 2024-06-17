@@ -217,7 +217,7 @@ const { title } = Astro.props;
 		}
 
 		.training-item {
-			animation: contentImg linear;
+			animation: fadeInUpScale linear;
 			animation-timeline: view();
 			animation-range: 0 160px;
 		}
@@ -295,6 +295,22 @@ const { title } = Astro.props;
 				opacity: 1;
 				filter: grayscale(0);
 				transform: scale(1);
+			}
+		}
+
+		@keyframes fadeInUpScale {
+			from {
+				opacity: 0;
+				filter: blur(2px);
+				transform: scale(0.7) translateY(30px);
+			}
+			70% {
+				filter: blur(2px);
+			}
+			to {
+				opacity: 1;
+				filter: grayscale(0);
+				transform: scale(1) translateY(0);
 			}
 		}
 
