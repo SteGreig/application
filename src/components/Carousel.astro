@@ -10,7 +10,7 @@ const { classes, arrows } = Astro.props;
 <div class={`carousel-wrap max-w-screen-4xl mx-auto relative ${classes}`}>
 
   <div class={`carousel-arrows--${arrows} flex`}>
-    <button class="carousel-arrow carousel-arrow-left flex w-6 transition duration-300" aria-label="Arrow left">
+    <button class="carousel-arrow carousel-arrow-left flex w-6 transition duration-300 opacity-30" aria-label="Arrow left">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M17 239L0 256l17 17L153 409l17 17L203.9 392l-17-17-95-95L488 280l24 0 0-48-24 0L91.9 232l95-95 17-17L169.9 86.1l-17 17L17 239z"/></svg>
     </button>
     
@@ -62,7 +62,6 @@ if(carouselWraps) {
   carouselWraps.forEach((carousel) => {
 
     var carouselArrows = carousel.querySelectorAll(".carousel-arrow") as any as Array<HTMLElement>;
-    var carouselDots = carousel.querySelectorAll(".carousel-dots button") as any as Array<HTMLElement>;
 
     var carouselContainer = carousel.querySelector('.carousel-container') as HTMLElement | null;
     var carouselItem = carousel.querySelectorAll('.carousel-container > *') as any as Array<HTMLElement>;
@@ -85,48 +84,30 @@ if(carouselWraps) {
             behavior: "smooth",
           });
         }
+
+        arrowStates();
+
       })
-    })
+      
+      carouselContainer.addEventListener('scroll', arrowStates)
 
-    carouselDots.forEach(dot => {
-
-      var dotsParent = dot.parentElement;
-      var dotIndex = [...dotsParent.children].indexOf(dot);
-
-      dot.addEventListener("click", function() {
-
-        //console.log(dotIndex);
-
-        x = (carouselItem[0].offsetWidth * dotIndex);
-        carouselContainer.scrollTo({
-          left: x,
-          behavior: "smooth",
-        });
-        
-      })
-
-      carousel.addEventListener('click', function() {
-
-        carouselItem.forEach(item => {
-          item.querySelector('img').classList.remove('invisible');
-          item.querySelector('img').classList.add('visible');
-        })
-
+      function arrowStates() {
         setTimeout(function() {
-          var scrollPos = carouselContainer.scrollLeft;
-    
-          if(Math.ceil((carouselItem[0].offsetWidth * dotIndex)/100)*100 === Math.ceil(scrollPos/100)*100) {
-            
-            carouselDots.forEach(dot => {
-              dot.classList.remove('opacity-100');
-              dot.classList.add('opacity-70');
-            });
-            carousel.querySelector(`.carousel-dots button:nth-child(${dotIndex+1})`).classList.remove('opacity-70');
-            carousel.querySelector(`.carousel-dots button:nth-child(${dotIndex+1})`).classList.add('opacity-100');
-            
+
+          if(parseInt(carouselContainer.scrollLeft) >= parseInt((carouselContainer.scrollWidth - (carouselContainer.clientWidth+10)))) {
+            carousel.querySelector('.carousel-arrow-right').classList.add('opacity-30');
+          } else {
+            carousel.querySelector('.carousel-arrow-right').classList.remove('opacity-30');
           }
-        }, 750);
-      });
+
+          if(carouselContainer.scrollLeft < carouselItem[0].offsetWidth/2) {
+            carousel.querySelector('.carousel-arrow-left').classList.add('opacity-30');
+          } else {
+            carousel.querySelector('.carousel-arrow-left').classList.remove('opacity-30');
+          }
+        }, 400);
+      }
+
     })
     
   });
