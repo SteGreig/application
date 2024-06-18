@@ -94,7 +94,7 @@ if(carouselWraps) {
       function arrowStates() {
         setTimeout(function() {
 
-          if(parseInt(carouselContainer.scrollLeft) >= parseInt((carouselContainer.scrollWidth - (carouselContainer.clientWidth+10)))) {
+          if(carouselContainer.scrollLeft >= (carouselContainer.scrollWidth - (carouselContainer.clientWidth+10))) {
             carousel.querySelector('.carousel-arrow-right').classList.add('opacity-30');
           } else {
             carousel.querySelector('.carousel-arrow-right').classList.remove('opacity-30');
