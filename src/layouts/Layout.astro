@@ -47,7 +47,7 @@ const { title } = Astro.props;
 		@apply hidden sm:inline-flex;
 	}
 
-	.intro-section ~ *:not(.modal) {
+	.intro-section ~ *:not(.modal):not(#thankyou) {
 		@apply relative z-10;
 	}
 	
@@ -101,6 +101,15 @@ const { title } = Astro.props;
 		@apply font-medium underline decoration-grey-300 hover:decoration-grey-900;
 	}
 
+	.copy ul {
+		@apply pl-6 md:pl-10;
+	}
+
+	.copy li {
+		@apply list-outside py-2;
+		list-style: circle;
+	}
+
 	strong,
 	b {
 		@apply font-medium text-grey-900;
@@ -131,8 +140,20 @@ const { title } = Astro.props;
 		@apply absolute top-full mt-3 left-1/2 -translate-x-1/2 -translate-y-4 opacity-0 pointer-events-none bg-white text-black rounded px-2 py-1 text-xs transition duration-300 whitespace-nowrap leading-tight;
 	}
 
+	.tooltip--dark {
+		@apply text-white bg-grey-900;
+	}
+
 	.btn:hover .tooltip {
 		@apply opacity-100 translate-y-0;
+	}
+
+	.sticky-btns {
+		@apply opacity-0 translate-y-5 invisible;
+	}
+
+	.sticky-btns.active {
+		@apply opacity-100 translate-y-0 visible;
 	}
 
 	.hide-scrollbars {
