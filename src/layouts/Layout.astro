@@ -160,6 +160,12 @@ const { title } = Astro.props;
 			animation: 2s hey both;
 		}
 
+		.wave-emoji {
+			@apply inline-block;
+			transform-origin: 70% 70%;
+			animation: 1.5s wave;
+		}
+
 		@keyframes hey {
 			0% {
 				transform: scale(3) translateY(160%);
@@ -311,6 +317,20 @@ const { title } = Astro.props;
 				opacity: 1;
 				filter: grayscale(0);
 				transform: scale(1) translateY(0);
+			}
+		}
+
+		@keyframes wave {
+			25% {
+				transform: rotate(10deg);
+			}
+
+			50% {
+				transform: rotate(-10deg);
+			}
+
+			75% {
+				transform: rotate(10deg);
 			}
 		}
 
