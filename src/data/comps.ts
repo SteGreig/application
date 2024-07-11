@@ -21,6 +21,6 @@ export const comps = [
     'slug': "sequence",
     'company': 'Sequence',
     'role': 'Design Engineer',
-    'signoff': "I love the intricacy of some of the components on your website, and I can very much imagine myself building these types of features. And from everything I've read, Sequence feels like it would be a fantastic company to work for. If you think I'd be a good fit, please reach out below."
+    'signoff': "From everything I've read, Sequence feels like it would be a fantastic company to work for. I also love the intricacy of some of the components on your website, and can very much imagine myself building these types of features. I'd love to join your cause - If you think I'd be a good fit, please reach out below."
   },
 ]
