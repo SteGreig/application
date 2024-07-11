@@ -48,7 +48,7 @@ const { slug, company, signoff, role } = Astro.props;
 					<svg class="w-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M272 208v48 85.8l78.7-212.5L138.2 208H224h48zM0 208L372.7 70 432 48l-22 59.3L272 480H224V432 304 256H176 48 0V208z"/></svg>
 					<span>Nottingham, UK</span>
 				</p>
-				<p class="header-hey mx-auto sm:text-lg 4xl:text-2xl font-medium">Hey, {company} <span class="wave-emoji">👋</span></p>
+				<p class="header-hey mx-auto sm:text-lg 4xl:text-2xl font-medium">Hey {company && (`, ${company}`)} <span class="wave-emoji">👋</span></p>
 				<button class="btn header-btn" data-modal-target="contact">
 					<span class="text-sm sm:text-base">Get in touch</span>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M48 150.8l208 143 208-143V112H48v38.8zM464 209L256 352 48 209V400H464V209zM0 400V176 112 64H48 464h48v48 64V400v48H464 48 0V400z"/></svg>
