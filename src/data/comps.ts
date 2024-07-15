@@ -29,4 +29,10 @@ export const comps = [
     'role': 'Frontend Developer',
     'signoff': "Cera seems like a company that's doing real valuable work, and I'd love to join your cause - if you think I'd be a good fit for your team, please reach out below."
   },
+  {
+    'slug': "gousto",
+    'company': 'Gousto',
+    'role': 'Software Engineer',
+    'signoff': "I think you can get the vibe of a company through the job descriptions they write, and Gousto absolutely feels like a fantastic place to work, and I'd love to join your cause - if you think I'd be a good fit for your team, please reach out below."
+  },
 ]
