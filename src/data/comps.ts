@@ -35,4 +35,10 @@ export const comps = [
     'role': 'Software Engineer',
     'signoff': "I think you can get the vibe of a company through the job descriptions they write, and Gousto absolutely feels like a fantastic place to work, and I'd love to join your cause - if you think I'd be a good fit for your team, please reach out below."
   },
+  {
+    'slug': "storyteller",
+    'company': 'Storyteller',
+    'role': 'Senior Frontend Developer',
+    'signoff': "I think you can get the vibe of a company through the job descriptions they write, and Storyteller absolutely feels like a fantastic place to work, and I'd love to join your cause - if you think I'd be a good fit for your team, please reach out below."
+  },
 ]
