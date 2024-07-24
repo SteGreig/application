@@ -41,4 +41,10 @@ export const comps = [
     'role': 'Senior Frontend Developer',
     'signoff': "I think you can get the vibe of a company through the job descriptions they write, and Storyteller absolutely feels like a fantastic place to work, and I'd love to join your cause - if you think I'd be a good fit for your team, please reach out below."
   },
+  {
+    'slug': "evaluagent",
+    'company': 'EvaluAgent',
+    'role': 'UI Engineer',
+    'signoff': "As someone who straddles the world's of design and development, this role seems like a perfect fit for my skill set, and from your careers page, EvaluAgent feels like a fantastic place to work! I'd love to join your cause, so if you think I'd be a good fit for your team, please reach out below."
+  },
 ]
