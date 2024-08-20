@@ -47,4 +47,10 @@ export const comps = [
     'role': 'UI Engineer',
     'signoff': "As someone who straddles the world's of design and development, this role seems like a perfect fit for my skill set, and from your careers page, EvaluAgent feels like a fantastic place to work! I'd love to join your cause, so if you think I'd be a good fit for your team, please reach out below."
   },
+  {
+    'slug': "mozilla",
+    'company': 'Mozilla',
+    'role': 'Senior Front End Engineer',
+    'signoff': "I've always been a huge admirer of Mozilla and the privacy-focused work you do, and I'd love to join your cause, so if you think I'd be a good fit for your team, please reach out below."
+  },
 ]
