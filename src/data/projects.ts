@@ -19,8 +19,8 @@ export const projects = [
   },
   {
     'title': "Moot 4x4",
-    'subtitle': 'Work in progress',
-    'link': "https://dribbble.com/shots/24258800-Car-Parts-Ecommerce-Site",
+    'subtitle': 'moot4x4.com',
+    'link': "https://www.moot4x4.com/",
     'image': "/moot.png"
   },
   {
