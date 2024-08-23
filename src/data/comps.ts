@@ -53,4 +53,10 @@ export const comps = [
     'role': 'Senior Front End Engineer',
     'signoff': "I've always been a huge admirer of Mozilla and the privacy-focused work you do, and I'd love to join your cause, so if you think I'd be a good fit for your team, please reach out below."
   },
+  {
+    'slug': "paddle",
+    'company': 'Paddle',
+    'role': 'Web Developer',
+    'signoff': "Paddle seems like a great company on an upward trajectory, and I'd love to join your cause - if you think I'd be a good fit for your team, please reach out below."
+  },
 ]
