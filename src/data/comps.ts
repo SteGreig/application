@@ -59,4 +59,10 @@ export const comps = [
     'role': 'Web Developer',
     'signoff': "Paddle seems like a great company on an upward trajectory, and I'd love to join your cause - if you think I'd be a good fit for your team, please reach out below."
   },
+  {
+    'slug': "manual",
+    'company': 'Manual',
+    'role': 'Senior Frontend Engineer',
+    'signoff': "Manual seems like a great company on an upward trajectory, and I'd love to join your cause - if you think I'd be a good fit for your team, please reach out below."
+  },
 ]
