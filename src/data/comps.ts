@@ -69,6 +69,6 @@ export const comps = [
     'slug': "clickup",
     'company': 'ClickUp',
     'role': 'Senior UI Engineer',
-    'signoff': "As someone who has always straddled the worlds of design and development, this role feels like the one I've been waiting for! I'd love to join your cause - if you think I'd be a good fit for your team, please reach out below."
+    'signoff': "As someone who has always straddled the worlds of design and development, this role at ClickUp feels like the one I've been waiting for! I'd love to join your cause - if you think I'd be a good fit for your team, please reach out below."
   },
 ]
