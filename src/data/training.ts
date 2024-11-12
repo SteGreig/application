@@ -1,5 +1,15 @@
 export const training = [
   {
+    'year': "2024",
+    'title': "What's New in CSS",
+    'desc': "The latest and greatest features in CSS!",
+    'btns': [
+      {
+        'text': 'Coming Soon',
+      },
+    ]
+  },
+  {
     'year': "2022",
     'title': "JavaScript Fundamentals",
     'desc': "A 4 part, 6 hour course on the basics of JavaScript",
