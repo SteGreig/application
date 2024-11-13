@@ -71,4 +71,13 @@ export const comps = [
     'role': 'Senior UI Engineer',
     'signoff': "As someone who has always straddled the worlds of design and development, this role at ClickUp feels like the one I've been waiting for! I'd love to join your cause - if you think I'd be a good fit for your team, please reach out below."
   },
+  {
+    'slug': "runway",
+    'company': 'Runway',
+    'role': 'Design Engineer',
+    'signoff': "As someone who has always straddled the worlds of design and development, this role at Runway feels like a perfect fit for me and I'd love to join your cause. If you think I'd be a good fit for your team, please reach out below.",
+    'compLogo': 'runway-logo.svg',
+    'logoClasses': 'translate-y-[2px]',
+    'whySection': true
+  },
 ]

@@ -9,6 +9,7 @@ import TrainingItem from '../components/TrainingItem.astro'
 import Modal from '../components/Modal.astro'
 import SocialLinks from '../components/SocialLinks.astro'
 import ContactLinks from '../components/ContactLinks.astro'
+import * as cheerio from "cheerio";
 
 import {projects} from '../data/projects.ts'
 import {employment} from '../data/employment.ts'
@@ -22,15 +23,15 @@ export async function getStaticPaths() {
     ...comps
   ];
 
-  return pages.map(({ slug, company, signoff, role }) => {
+  return pages.map(({ slug, company, signoff, role, compLogo, logoClasses, whySection }) => {
     return {
       params: { slug },
-      props: { slug, company, signoff, role },
+      props: { slug, company, signoff, role, compLogo, logoClasses, whySection },
     };
   });
 }
 
-const { slug, company, signoff, role } = Astro.props;
+const { slug, company, signoff, role, compLogo, logoClasses, whySection } = Astro.props;
 ---
 
 <Layout title=`${company} ${role} Appliction - Ste Greig`>
@@ -48,7 +49,7 @@ const { slug, company, signoff, role } = Astro.props;
 					<svg class="w-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M272 208v48 85.8l78.7-212.5L138.2 208H224h48zM0 208L372.7 70 432 48l-22 59.3L272 480H224V432 304 256H176 48 0V208z"/></svg>
 					<span>Nottingham, UK</span>
 				</p>
-				<p class="header-hey mx-auto sm:text-lg 4xl:text-2xl font-medium">Hey{company && (`, ${company}`)} <span class="wave-emoji">👋</span></p>
+				<p class="header-hey mx-auto sm:text-lg 4xl:text-2xl font-medium flex">Hey{(company || compLogo) && ','} {compLogo ? ( <img class=`w-20 ml-[0.375rem] mr-1 ${logoClasses}` src=`/${compLogo}`> ) : company} <span class="wave-emoji ml-1">👋</span></p>
 				<button class="btn header-btn" data-modal-target="contact">
 					<span class="text-sm sm:text-base">Get in touch</span>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M48 150.8l208 143 208-143V112H48v38.8zM464 209L256 352 48 209V400H464V209zM0 400V176 112 64H48 464h48v48 64V400v48H464 48 0V400z"/></svg>
@@ -74,6 +75,20 @@ const { slug, company, signoff, role } = Astro.props;
 		</div>
 
 		<div class="intro-section-pixel w-px h-px opacity-0 absolute top-0 left-0"></div>
+
+		{whySection && (
+			<section class="bg-gradient-to-t from-offwhite via-offwhite">
+				<img class=`w-full large-logo` src=`/${compLogo}`>
+				<div class="bg-black text-white -mt-2 py-8 md:py-10 lg:py-16 2xl:py-20 relative z-10">
+					<div class="max-w-screen-sm mx-auto text-center px-4 text-lg copy why-section-copy">
+						<p>To say this opportunity has piqued my interest would be an understatement.</p>
+						<p>A React engineering role with a focus on beautiful UIs and thoughtful UX - it's exactly what I've been waiting for!</p>
+						<p>My primary strengths are all listed as key requirements for the role; React, TypeScript, CSS, Figma, strong design knowledge, creative problem solving, analytical thinking, self-drive, adaptability, natural curiosity...</p>
+						<p>I'd <em>love</em> to be the bridge between design and development for Runway. You can read more about me and my experience below - hope to hear from you soon!</p>
+					</div>
+				</div>
+			</section>
+		)}
 
 		<section class="content-section bg-grey-100 px-6 py-16 md:py-0">
 			<div class="md:flex md:items-center">
@@ -186,6 +201,14 @@ const { slug, company, signoff, role } = Astro.props;
 				</div>
 			</div>
 		</section>
+
+		{/* {whySection && (
+			<section class="bg-black text-white pt-8 md:pt-10 lg:pt-16 pb-16 md:pb-20 lg:pb-32">
+				<div class="max-w-screen-md mx-auto text-center px-4">
+					<h2 class="heading flex justify-center">Why <img class=`w-40 ml-3 mr-1 invert translate-y-2` src=`/${compLogo}`>?</h2>
+				</div>
+			</section>
+		)} */}
 
 		<section class="bg-offwhite pt-8 md:pt-10 lg:pt-16 pb-16 md:pb-20 lg:pb-32">
 			<div class="max-w-screen-md mx-auto text-center px-4">
@@ -481,7 +504,7 @@ const { slug, company, signoff, role } = Astro.props;
 	});
 
 
-	const introSection = document.querySelector('.intro-section');
+	{/* const introSection = document.querySelector('.intro-section');
   const stickyBtns = document.querySelector('.sticky-btns');
 
 	var observer = new IntersectionObserver((entries) => {
@@ -493,7 +516,12 @@ const { slug, company, signoff, role } = Astro.props;
       stickyBtns.classList.remove("active");
     }
   });
-  observer.observe(document.querySelector(".intro-section-pixel"));
+  observer.observe(document.querySelector(".intro-section-pixel")); */}
+
+	const stickyBtns = document.querySelector('.sticky-btns');
+	document.addEventListener('scroll', () => {
+		stickyBtns.classList.add("active");
+	})
 
 
 	const copyEmailBtns = document.querySelectorAll('.copy-email');

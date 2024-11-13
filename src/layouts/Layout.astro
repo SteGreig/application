@@ -178,7 +178,11 @@ const { title } = Astro.props;
 		}
 
 		.header-hey {
-			animation: 2s hey both;
+			animation: 2s heyMob both;
+
+			@media screen and (min-width: 1024px) {
+				animation: 2s hey both;
+			}
 		}
 
 		.wave-emoji {
@@ -188,6 +192,22 @@ const { title } = Astro.props;
 		}
 
 		@keyframes hey {
+			0% {
+				transform: scale(5) translateY(70%);
+				opacity: 0;
+			}
+
+			50% {
+				transform: scale(5) translateY(110%);
+				opacity: 1;
+			}
+
+			70% {
+				transform: scale(5) translateY(110%);
+			}
+		}
+
+		@keyframes heyMob {
 			0% {
 				transform: scale(3) translateY(160%);
 				opacity: 0;
@@ -255,6 +275,12 @@ const { title } = Astro.props;
 			animation-range: 0 60%;
 		}
 
+		.why-section-copy {
+			animation: fadeIn linear both;
+			animation-timeline: view();
+			animation-range: 0 60%;
+		}
+
 		@keyframes fadeInDownBig {
 			from {
 				opacity: 0;
@@ -304,7 +330,7 @@ const { title } = Astro.props;
 		}
 
 		@keyframes scaleDown {
-			to {
+			100% {
 				transform: scale(0);
 			}
 		}
@@ -355,6 +381,10 @@ const { title } = Astro.props;
 			}
 		}
 
+	}
+
+	.large-logo {
+		filter: drop-shadow( 0 0 50px #fff);
 	}
 
 </style>
