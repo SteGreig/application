@@ -6,6 +6,12 @@ export const comps = [
     'signoff': "I'd love to join your cause, so if you think I'd be a good fit for your team, please reach out below."
   },
   {
+    'slug': "intercom",
+    'company': 'Intercom',
+    'role': 'Design Engineer',
+    'signoff': "I'd love to join your cause, so if you think I'd be a good fit for your team, please reach out below."
+  },
+  {
     'slug': "volteras",
     'company': 'Volteras',
     'role': 'Frontend / Design Engineer',
